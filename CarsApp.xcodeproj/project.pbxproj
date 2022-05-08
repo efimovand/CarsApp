@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5525F7A028286B2F00B566F3 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F79F28286B2F00B566F3 /* gameView.swift */; };
+		5525F7A128286E4D00B566F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5580378F282822BD00B79916 /* Assets.xcassets */; };
 		5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580378B282822BC00B79916 /* CarsAppApp.swift */; };
 		5580378E282822BC00B79916 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580378D282822BC00B79916 /* ContentView.swift */; };
-		55803790282822BD00B79916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5580378F282822BD00B79916 /* Assets.xcassets */; };
 		55803793282822BD00B79916 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55803792282822BD00B79916 /* Preview Assets.xcassets */; };
 		5580379D282822BD00B79916 /* CarsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580379C282822BD00B79916 /* CarsAppTests.swift */; };
 		558037A7282822BD00B79916 /* CarsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558037A6282822BD00B79916 /* CarsAppUITests.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5525F79F28286B2F00B566F3 /* gameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
 		55803788282822BC00B79916 /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5580378B282822BC00B79916 /* CarsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsAppApp.swift; sourceTree = "<group>"; };
 		5580378D282822BC00B79916 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				5580378B282822BC00B79916 /* CarsAppApp.swift */,
 				5580378D282822BC00B79916 /* ContentView.swift */,
 				558037B5282822E100B79916 /* menuView.swift */,
+				5525F79F28286B2F00B566F3 /* gameView.swift */,
 				558037B7282824AD00B79916 /* Functions.swift */,
 				5580378F282822BD00B79916 /* Assets.xcassets */,
 				559AE2E9282831C300EC7C3E /* customFont.ttf */,
@@ -241,8 +244,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55803793282822BD00B79916 /* Preview Assets.xcassets in Resources */,
+				5525F7A128286E4D00B566F3 /* Assets.xcassets in Resources */,
 				559AE2EA282831C300EC7C3E /* customFont.ttf in Resources */,
-				55803790282822BD00B79916 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5525F7A028286B2F00B566F3 /* gameView.swift in Sources */,
 				558037B6282822E100B79916 /* menuView.swift in Sources */,
 				5580378E282822BC00B79916 /* ContentView.swift in Sources */,
 				5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */,

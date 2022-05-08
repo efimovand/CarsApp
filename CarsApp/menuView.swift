@@ -15,10 +15,27 @@ struct menuView: View {
             
             VStack(spacing: 40){
                 
+                ZStack{
+                
                 Image("road")
                     .resizable()
                     .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 1.05, alignment: .center)
                     .clipShape(RoundedCorners(tl: 0, tr: 0, bl: 80, br: 80))
+                    
+                    Image("toyota_corolla_levin")
+                        .resizable()
+                        .frame(width: 413, height: 423, alignment: .center)
+                        .padding(.all, -50)
+                    
+                    RoundedRectangle(cornerRadius: 40)
+                        .foregroundColor(Color(red: 235, green: 0, blue: 255))
+                        .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.172)
+                        .overlay(Text("Logo")
+                            .foregroundColor(Color.white)
+                            .font(Font.custom("PorterSansBlock", size: 45)))
+                        .offset(y: -18)
+                    
+                }
             
             // Buttons
             VStack(spacing: 30){
@@ -31,9 +48,9 @@ struct menuView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(Color.white)
                             .frame(width: 272, height: 70)
-                            .opacity(0.4)
+                            .opacity(0.1)
                             .overlay(RoundedRectangle(cornerRadius: 20).stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.60), Color(red: 1, green: 1, blue: 1, opacity: 0.40)]), startPoint: .leading, endPoint: .trailing), lineWidth: 3))
-                            //.background(.ultraThinMaterial)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
                         
                         Text("Play")
                             .foregroundColor(Color.white)
@@ -49,9 +66,9 @@ struct menuView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(Color.white)
                             .frame(width: 272, height: 70)
-                            .opacity(0.4)
-                            .overlay(RoundedRectangle(cornerRadius: 20).stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.60), Color(red: 1, green: 1, blue: 1, opacity: 0.40)]), startPoint: .leading, endPoint: .trailing), lineWidth: 3).accessibilityLabel("Label"))
-                            //.background(.ultraThinMaterial)
+                            .opacity(0.1)
+                            .overlay(RoundedRectangle(cornerRadius: 20).stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.60), Color(red: 1, green: 1, blue: 1, opacity: 0.40)]), startPoint: .leading, endPoint: .trailing), lineWidth: 3))
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
                         
                         Text("Cars")
                             .foregroundColor(Color.white)

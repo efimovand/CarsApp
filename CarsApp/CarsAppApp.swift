@@ -11,7 +11,8 @@ import SwiftUI
 struct CarsAppApp: App {
     var body: some Scene {
         WindowGroup {
-            menuView()
+            //menuView()
+            gameView()
         }
     }
 }
