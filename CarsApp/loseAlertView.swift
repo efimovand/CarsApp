@@ -9,7 +9,10 @@ import SwiftUI
 
 struct loseAlertView: View {
     
+    @EnvironmentObject var data: UserData
+    
     @Binding var loseAlertShown: Bool
+    @State var loseAlertOpacity: Double = 0
     @State var isLoading = false
     
     @State var gradientColors: [Color] = [.red, .white]
@@ -21,13 +24,13 @@ struct loseAlertView: View {
     @State var hasTimeElapsed = false
     
     private func delayTime() async {
-            try? await Task.sleep(nanoseconds: 4_600_000_000)
+            try? await Task.sleep(nanoseconds: 3_600_000_000)
             hasTimeElapsed = true
         }
     
     var body: some View {
         
-        VStack(spacing: 19){
+        VStack(spacing: 16){
             
             // Alert
             ZStack{
@@ -41,13 +44,13 @@ struct loseAlertView: View {
                 
                 VStack(spacing: 6){
                     
-                    Text("Your score: ")
+                    Text("Your score: \(data.score - 1)")
                         .foregroundColor(Color.white)
                         .font(Font.custom("PorterSansBlock", size: 20))
                         .frame(width: UIScreen.screenWidth * 0.8, height: 48, alignment: .leading)
                         .padding(.leading, 25)
                     
-                    Text("New cars unlocked: ")
+                    Text("New cars unlocked: \(data.tempCars.count)")
                         .foregroundColor(Color.white)
                         .font(Font.custom("PorterSansBlock", size: 20))
                         .frame(width: UIScreen.screenWidth * 0.8, height: 48, alignment: .leading)
@@ -84,7 +87,10 @@ struct loseAlertView: View {
                     .task(delayTime)
                 
             }.onAppear(){
-                withAnimation(.linear(duration: 5)) { isLoading = true }
+                
+                withAnimation(.linear(duration: 4)) { isLoading = true }
+                withAnimation(.spring()) { loseAlertOpacity = 1 }
+                
             }
             .onTapGesture(perform: {
                 // extraLife
@@ -94,28 +100,40 @@ struct loseAlertView: View {
                 switch value {
                 case true:
                     withAnimation(.linear(duration: 0.3)) { heartOpacity = 0 }
-                    withAnimation(.linear(duration: 0.3)) {continueOpacity = 1 }
+                    withAnimation(.linear(duration: 0.3)) { continueOpacity = 1 }
                 case false: heartOpacity = 1
                 }
             })
-            
+                
+                // Continue Circle
                 Circle()
                     .foregroundColor(Color.white)
                     .opacity(0.3)
                     .frame(width: 60, height: 60)
                     .background(.ultraThinMaterial, in: Circle())
-                    .overlay(Circle().strokeBorder((Color.white).opacity(0.7), lineWidth: 2.7))
+                    .overlay(Circle().strokeBorder((Color.white).opacity(0.5), lineWidth: 2.7))
                     .overlay(Text("OK")
                         .foregroundColor(Color.white)
                         .font(Font.custom("PorterSansBlock", size: 14)))
                     .opacity(continueOpacity)
                     .onTapGesture(perform: {
-                        // continue
+                        
+                        if (data.score - 1 > data.maxScore) {
+                            data.maxScore = data.score
+                            UserDefaults.standard.set(data.maxScore, forKey: "maxScore")
+                        }
+                        
+                        data.unlockedCars += data.tempCars
+                        UserDefaults.standard.set(data.unlockedCars, forKey: "unlockedCars")
+                        
+                        loseAlertShown = false
+                        data.game = false
+                        
                     })
                 
             }
             
-        }
+        }.opacity(loseAlertOpacity)
         
     }
     
@@ -124,6 +142,7 @@ struct loseAlertView: View {
 struct loseAlertView_Previews: PreviewProvider {
     static var previews: some View {
         loseAlertView(loseAlertShown: .constant(false))
+            .environmentObject(UserData())
             .background((Color("darkOrange")).frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight).ignoresSafeArea())
     }
 }
