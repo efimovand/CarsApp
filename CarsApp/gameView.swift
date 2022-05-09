@@ -10,7 +10,11 @@ import SwiftUI
 struct gameView: View {
     
     @State var cars = ["abarth 500", "alfa romeo 4c", "alfa romeo c39", "aston martin db11", "audi 100 avant", "bmw m3 e36", "bmw m3 e46", "bmw m3 e92", "bmw m635 e24", "bmw x1", "bugatti chiron", "caterham 21", "charger rt", "chevrolet camaro", "citroen ds23", "honda civic", "hyundai i20n", "jaguar xjs", "lamborghini diablo", "lancia 037", "maserati mc12", "maybach sw38", "mazda mx5", "mazda rx7", "mclaren f1", "mercedes a45", "mercedes w25", "mitsubishi evo 7", "mitsubishi evo 8", "nissan gtr r32", "nissan gtr r34", "nissan gtr r35", "nissan silvia s13", "nissan silvia s15", "porsche 911", "renault 19 16s", "renault clio", "renault megane", "subaru impreza", "suzuki hustler", "suzuki swift", "toyota corolla", "toyota fjcruiser", "toyota gt86", "toyota lc FJ43", "toyota lc76", "toyota mr2", "toyota supra", "vw beetle"].shuffled()
+    
     @State var correctAnswer = Int.random(in: 0..<4)
+    
+    @State var loseAlertShown: Bool = false
+    @State var blurRadius: CGFloat = 0
     
     @State var score: Int = 0
     
@@ -89,13 +93,24 @@ struct gameView: View {
                 
                 Spacer()
                 
-            }
+            }.blur(radius: blurRadius)
+                    .onChange(of: loseAlertShown, perform: { value in
+                        switch value {
+                        case false : withAnimation(.linear(duration: 0.15)) { blurRadius = 0 }
+                        case true: withAnimation(.linear(duration: 0.35)) { blurRadius = 3 }
+                        }
+                    })
                 
             }
             
             // Game Collections
             else {
                 //
+            }
+            
+            // Lose Alert
+            if loseAlertShown {
+                loseAlertView(loseAlertShown: $loseAlertShown)
             }
             
         }.ignoresSafeArea()
@@ -114,10 +129,9 @@ struct gameView: View {
         if tag == correctAnswer {
             score += 1
             nextQuestion()
-            print(score % 10)
         }
         else {
-            // Lose Alert
+            loseAlertShown = true
         }
     }
 

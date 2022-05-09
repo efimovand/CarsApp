@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5525F7A028286B2F00B566F3 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F79F28286B2F00B566F3 /* gameView.swift */; };
 		5525F7A128286E4D00B566F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5580378F282822BD00B79916 /* Assets.xcassets */; };
+		5525F7A32828829100B566F3 /* loseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F7A22828829100B566F3 /* loseAlertView.swift */; };
 		5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580378B282822BC00B79916 /* CarsAppApp.swift */; };
 		5580378E282822BC00B79916 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580378D282822BC00B79916 /* ContentView.swift */; };
 		55803793282822BD00B79916 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55803792282822BD00B79916 /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		5525F79F28286B2F00B566F3 /* gameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
+		5525F7A22828829100B566F3 /* loseAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loseAlertView.swift; sourceTree = "<group>"; };
 		55803788282822BC00B79916 /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5580378B282822BC00B79916 /* CarsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsAppApp.swift; sourceTree = "<group>"; };
 		5580378D282822BC00B79916 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				5580378D282822BC00B79916 /* ContentView.swift */,
 				558037B5282822E100B79916 /* menuView.swift */,
 				5525F79F28286B2F00B566F3 /* gameView.swift */,
+				5525F7A22828829100B566F3 /* loseAlertView.swift */,
 				558037B7282824AD00B79916 /* Functions.swift */,
 				5580378F282822BD00B79916 /* Assets.xcassets */,
 				559AE2E9282831C300EC7C3E /* customFont.ttf */,
@@ -274,6 +277,7 @@
 				558037B6282822E100B79916 /* menuView.swift in Sources */,
 				5580378E282822BC00B79916 /* ContentView.swift in Sources */,
 				5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */,
+				5525F7A32828829100B566F3 /* loseAlertView.swift in Sources */,
 				558037B8282824AD00B79916 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
