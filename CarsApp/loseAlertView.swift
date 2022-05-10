@@ -127,6 +127,7 @@ struct loseAlertView: View {
                         UserDefaults.standard.set(data.unlockedCars, forKey: "unlockedCars")
                         
                         loseAlertShown = false
+                        data.loseAlertCollection = false
                         data.game = false
                         
                     })

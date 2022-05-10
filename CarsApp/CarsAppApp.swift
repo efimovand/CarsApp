@@ -17,6 +17,8 @@ struct CarsAppApp: App {
     @StateObject private var tempCars = UserData()
     @StateObject private var score = UserData()
     @StateObject private var maxScore = UserData()
+    @StateObject private var loseAlertCollection = UserData()
+    @StateObject private var loseBlurRadius = UserData()
     
     var body: some Scene {
         WindowGroup {
@@ -28,6 +30,8 @@ struct CarsAppApp: App {
                 .environmentObject(tempCars)
                 .environmentObject(score)
                 .environmentObject(maxScore)
+                .environmentObject(loseAlertCollection)
+                .environmentObject(loseBlurRadius)
         }
     }
 }

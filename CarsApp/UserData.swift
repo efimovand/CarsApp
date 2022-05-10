@@ -5,6 +5,7 @@
 //  Created by Андрей Ефимов on 10.05.2022.
 //
 
+import SwiftUI
 import Foundation
 
 class UserData: ObservableObject {
@@ -15,4 +16,6 @@ class UserData: ObservableObject {
     @Published var tempCars: [String] = [] // string temporary array for saving new cars during the game
     @Published var score: Int = 1
     @Published var maxScore = UserDefaults.standard.integer(forKey: "maxScore")
+    @Published var loseAlertCollection: Bool = false
+    @Published var loseBlurRadius: CGFloat = 0
 }
