@@ -33,6 +33,7 @@ struct menuView: View {
                             .frame(width: 413, height: 423, alignment: .center)
                             .padding(.all, -50)
                         
+                        // Logo
                         RoundedRectangle(cornerRadius: 40)
                             .foregroundColor(Color(red: 235, green: 0, blue: 255))
                             .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.172)
@@ -40,6 +41,10 @@ struct menuView: View {
                                 .foregroundColor(Color.white)
                                 .font(Font.custom("PorterSansBlock", size: 45)))
                             .offset(y: -18)
+                            .onTapGesture(perform: {
+                                data.maxScore = 0
+                                data.unlockedCars = []
+                            })
                         
                     }
                     
@@ -90,6 +95,20 @@ struct menuView: View {
                     
                 }
                 
+                HStack(spacing: UIScreen.screenWidth * 0.98 - 120){
+                    
+                    // Top Score
+                    Image(systemName: "star.fill")
+                        .resizable()
+                        .foregroundColor(Color.white)
+                        .frame(width: 50, height: 50)
+                        .opacity(0.5)
+                        .overlay(Text("\(data.maxScore)")
+                            .foregroundColor(Color.white)
+                            .font(Font.custom("PorterSansBlock", size: 12))
+                            .offset(y: 2))
+                
+                    // Settings Button
                 Button(action: {
                     // settings
                 }) {
@@ -97,7 +116,9 @@ struct menuView: View {
                         .resizable()
                         .frame(width: 60, height: 60)
                         .opacity(0.5)
-                }.frame(width: UIScreen.screenWidth * 0.98, height: UIScreen.screenHeight * 0.95, alignment: .bottomTrailing)
+                }
+                    
+                }.frame(height: UIScreen.screenHeight * 0.95, alignment: .bottom)
                 
             }
             

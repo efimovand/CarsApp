@@ -126,7 +126,7 @@ struct loseAlertView: View {
                     .onTapGesture(perform: {
                         
                         if (data.score - 1 > data.maxScore) {
-                            data.maxScore = data.score
+                            data.maxScore = data.score - 1
                             UserDefaults.standard.set(data.maxScore, forKey: "maxScore")
                         }
                         
