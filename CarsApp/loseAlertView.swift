@@ -32,6 +32,13 @@ struct loseAlertView: View {
         
         VStack(spacing: 16){
             
+            Text("New Top Score!")
+                .foregroundColor(Color.white)
+                .font(Font.custom("PorterSansBlock", size: 21))
+                .opacity(data.score - 1 > data.maxScore ? 1 : 0)
+                .padding(.bottom, -21)
+                .offset(y: -16)
+            
             // Alert
             ZStack{
                 

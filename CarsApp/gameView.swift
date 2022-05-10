@@ -13,9 +13,11 @@ struct gameView: View {
     
     @State var cars = ["abarth 500", "alfa romeo 4c", "alfa romeo c39", "aston martin db11", "audi 100 avant", "bmw m3 e36", "bmw m3 e46", "bmw m3 e92", "bmw m635 e24", "bmw x1", "bugatti chiron", "caterham 21", "charger rt", "chevrolet camaro", "citroen ds23", "honda civic", "hyundai i20n", "jaguar xjs", "lamborghini diablo", "lancia 037", "maserati mc12", "maybach sw38", "mazda mx5", "mazda rx7", "mclaren f1", "mercedes a45", "mercedes w25", "mitsubishi evo 7", "mitsubishi evo 8", "nissan gtr r32", "nissan gtr r34", "nissan gtr r35", "nissan silvia s13", "nissan silvia s15", "porsche 911", "renault 19 16s", "renault clio", "renault megane", "subaru impreza", "suzuki hustler", "suzuki swift", "toyota corolla", "toyota fjcruiser", "toyota gt86", "toyota lc FJ43", "toyota lc76", "toyota mr2", "toyota supra", "vw beetle"].shuffled()
     
-    @State var collections = [collection_rx7().self].shuffled()
+    @State var collection_1 = [collection_rx7().self]
+    @State var collection_2 = [collection_mx5().self]
     
     @State var correctAnswer = Int.random(in: 0..<4)
+    @State var correctAnswerCollections = Int.random(in: 0..<2)
     
     @State var loseAlertShown: Bool = false
     
@@ -26,8 +28,6 @@ struct gameView: View {
             ZStack{
             
             // Game Single
-            if ((data.score % 10) != 0 && (data.score % 10 != 5)) {
-                
                 VStack(spacing: 15){
                     
                     VStack(spacing: 28){
@@ -88,6 +88,7 @@ struct gameView: View {
                             }
                         }
                         
+                        // star
                         Image(systemName: "star.fill")
                             .resizable()
                             .frame(width: 24, height: 24, alignment: .center)
@@ -100,13 +101,23 @@ struct gameView: View {
                     
                 }
                 
-            }
             
-            // Game Collections
-            else {
-                collections[0] // [correctAnswer]
-            }
-                
+            
+                // Game Collections
+                ZStack{
+                    
+                    // randon collection
+                    switch correctAnswerCollections {
+                        
+                    case 1: collection_1[0]
+                    case 2: collection_2[0]
+                    case 3: collection_1[0]
+                    default: collection_2[0]
+                        
+                    }
+                    
+                }.opacity(((data.score % 10 == 0) || (data.score % 10 == 5)) ? 1 : 0)
+                    
             }.blur(radius: data.loseBlurRadius)
                 .onChange(of: loseAlertShown || data.loseAlertCollection, perform: { value in
                     switch value {
@@ -141,7 +152,7 @@ struct gameView: View {
                 data.tempCars.append(cars[tag] as String)
             }
             
-            nextQuestionSingle()
+            nextQuestion()
             
         }
         else {
@@ -150,84 +161,10 @@ struct gameView: View {
     }
 
     // function for going to the next quiestion
-    func nextQuestionSingle() {
+    func nextQuestion() {
         cars.shuffle()
         correctAnswer = Int.random(in: (0..<4))
-    }
-    
-}
-
-
-struct collection_rx7: View {
-    
-    @EnvironmentObject var data: UserData
-    
-    @State var image: Image = Image("rx7")
-    @State var cars = ["sa22c", "fc3s", "fd3s"]
-    @State var correctAnswer = Int.random(in: 0..<3)
-    
-    var body: some View {
-        
-        ZStack{
-        
-            // Image
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
-            
-            // Buttons
-            VStack(spacing: 50){
-                
-                ForEach(0..<3) { number in
-                
-                Rectangle()
-                    .foregroundColor(Color.white)
-                    .frame(width: 200, height: 150)
-                    .opacity(0.5)
-                    .onTapGesture(perform: {
-                        answeredCollection(number)
-                    })
-                    
-                }
-                    
-            }.padding(.top)
-            
-            // Question
-            Text("Guess the '\(cars[correctAnswer])'")
-                .foregroundColor(Color.white)
-                .font(Font.custom("PorterSansBlock", size: 20))
-                .offset(y: UIScreen.screenHeight * 0.4)
-            
-        }.ignoresSafeArea()
-            //.blur(radius: data.loseBlurRadius)
-        
-    }
-    
-    // checking is tapped answer right
-    func answeredCollection(_ tag: Int) {
-        
-        if tag == correctAnswer {
-            
-            data.score += 1
-            
-            if !(data.unlockedCars.contains(cars[tag] as String)) {
-                data.tempCars.append(cars[tag] as String)
-            }
-            
-            nextQuestionCollection()
-            
-        }
-        else {
-            data.loseAlertCollection = true
-        }
-        
-    }
-    
-    // function for going to the next quiestion
-    func nextQuestionCollection() {
-        cars.shuffle()
-        correctAnswer = Int.random(in: (0..<cars.count))
+        correctAnswerCollections = Int.random(in: 0..<2)
     }
     
 }
@@ -235,9 +172,7 @@ struct collection_rx7: View {
 
 struct gameView_Previews: PreviewProvider {
     static var previews: some View {
-//        gameView()
-//            .environmentObject(UserData())
-        collection_rx7()
+        gameView()
             .environmentObject(UserData())
     }
 }
