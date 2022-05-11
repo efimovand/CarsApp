@@ -47,7 +47,7 @@ struct collection_rx7: View {
             Text("Guess the '\(cars[correctAnswer])'")
                 .foregroundColor(Color.white)
                 .font(Font.custom("PorterSansBlock", size: 20))
-                .offset(y: UIScreen.screenHeight * 0.4)
+                .offset(y: UIScreen.screenHeight * 0.4 + 5)
             
         }.ignoresSafeArea()
         
@@ -147,7 +147,7 @@ struct collection_mx5: View {
             Text("Guess the '\(cars[correctAnswer])'")
                 .foregroundColor(Color.white)
                 .font(Font.custom("PorterSansBlock", size: 19))
-                .offset(y: UIScreen.screenHeight * 0.4)
+                .offset(y: UIScreen.screenHeight * 0.4 + 5)
             
         }.ignoresSafeArea()
         

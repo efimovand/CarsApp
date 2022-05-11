@@ -89,13 +89,13 @@ struct gameView: View {
                         }
                         
                         // star
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .frame(width: 24, height: 24, alignment: .center)
+                        star()
+                            .frame(width: 24, height: 22, alignment: .center)
                             .foregroundColor(Color.white)
+                            .offset(y: 0)
                             .opacity((data.score % 10 == 5) || (data.score % 10 == 0) ? 0.85 : 0.6) // ?
                         
-                    }
+                    }.offset(y: 7)
                     
                     Spacer()
                     

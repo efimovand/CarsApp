@@ -41,10 +41,6 @@ struct menuView: View {
                                 .foregroundColor(Color.white)
                                 .font(Font.custom("PorterSansBlock", size: 45)))
                             .offset(y: -18)
-                            .onTapGesture(perform: {
-                                data.maxScore = 0
-                                data.unlockedCars = []
-                            })
                         
                     }
                     
@@ -72,8 +68,9 @@ struct menuView: View {
                             data.game = true
                         })
                         
-                        // Gallery Button
+                        // Library Button
                         ZStack{
+                            
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(Color.white)
                                 .frame(width: 272, height: 70)
@@ -84,10 +81,27 @@ struct menuView: View {
                             Text("Cars")
                                 .foregroundColor(Color.white)
                                 .font(Font.custom("PorterSansBlock", size: 38))
+                            
                         }
                         .onTapGesture(perform: {
-                            data.gallery = true
+                            data.library = true
                         })
+                        
+                        // Top Score
+                        if data.maxScore > 0 {
+                            
+                        star()
+                            .foregroundColor(Color.white)
+                            .opacity(0.1)
+                            .overlay(star().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.60), Color(red: 1, green: 1, blue: 1, opacity: 0.40)]), startPoint: .leading, endPoint: .trailing), lineWidth: 2))
+                            .frame(width: 80, height: 70)
+                            .background(.ultraThinMaterial, in: star())
+                            .overlay(Text("\(data.maxScore)")
+                                .foregroundColor(Color.white)
+                                .font(data.maxScore < 10 ? Font.custom("PorterSansBlock", size: 26) : Font.custom("PorterSansBlock", size: 22))
+                                .offset(x: 1, y: 3))
+                            
+                        }
                         
                     }
                     
@@ -95,20 +109,7 @@ struct menuView: View {
                     
                 }
                 
-                HStack(spacing: UIScreen.screenWidth * 0.98 - 120){
-                    
-                    // Top Score
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .foregroundColor(Color.white)
-                        .frame(width: 50, height: 50)
-                        .opacity(0.5)
-                        .overlay(Text("\(data.maxScore)")
-                            .foregroundColor(Color.white)
-                            .font(Font.custom("PorterSansBlock", size: 12))
-                            .offset(y: 2))
-                
-                    // Settings Button
+                // Settings Button
                 Button(action: {
                     // settings
                 }) {
@@ -116,9 +117,7 @@ struct menuView: View {
                         .resizable()
                         .frame(width: 60, height: 60)
                         .opacity(0.5)
-                }
-                    
-                }.frame(height: UIScreen.screenHeight * 0.95, alignment: .bottom)
+                }.frame(width: UIScreen.screenWidth * 0.98, height: UIScreen.screenHeight * 0.95, alignment: .bottomTrailing)
                 
             }
             
@@ -127,9 +126,9 @@ struct menuView: View {
                 gameView()
             }
             
-            // Gallery
-            if data.gallery {
-                galleryView()
+            // Library
+            if data.library {
+                librarySingleView()
             }
             
         }.ignoresSafeArea()

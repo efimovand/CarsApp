@@ -12,7 +12,7 @@ struct CarsAppApp: App {
     
     @StateObject private var isLaunchedBefore = UserData()
     @StateObject private var game = UserData()
-    @StateObject private var gallery = UserData()
+    @StateObject private var library = UserData()
     @StateObject private var unlockedCars = UserData()
     @StateObject private var tempCars = UserData()
     @StateObject private var score = UserData()
@@ -25,7 +25,7 @@ struct CarsAppApp: App {
             firstLaunchLogic()
                 .environmentObject(isLaunchedBefore)
                 .environmentObject(game)
-                .environmentObject(gallery)
+                .environmentObject(library)
                 .environmentObject(unlockedCars)
                 .environmentObject(tempCars)
                 .environmentObject(score)
