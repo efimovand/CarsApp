@@ -19,6 +19,7 @@ struct CarsAppApp: App {
     @StateObject private var maxScore = UserData()
     @StateObject private var loseAlertCollection = UserData()
     @StateObject private var loseBlurRadius = UserData()
+    @StateObject private var extraLives = UserData()
     
     var body: some Scene {
         WindowGroup {
@@ -32,6 +33,7 @@ struct CarsAppApp: App {
                 .environmentObject(maxScore)
                 .environmentObject(loseAlertCollection)
                 .environmentObject(loseBlurRadius)
+                .environmentObject(extraLives)
         }
     }
 }

@@ -100,7 +100,16 @@ struct loseAlertView: View {
                 
             }
             .onTapGesture(perform: {
-                // extraLife
+                
+                if (data.extraLives < 1){
+                    // no extra lives
+                }
+                else {
+                    // extraLive's use animation
+                    loseAlertShown = false
+                    data.loseAlertCollection = false
+                }
+                
             })
             .opacity(heartOpacity)
             .onChange(of: hasTimeElapsed, perform: { value in

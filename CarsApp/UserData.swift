@@ -16,6 +16,7 @@ class UserData: ObservableObject {
     @Published var tempCars: [String] = [] // string temporary array for saving new cars during the game
     @Published var score: Int = 1
     @Published var maxScore = UserDefaults.standard.integer(forKey: "maxScore")
-    @Published var loseAlertCollection: Bool = false
+    @Published var loseAlertCollection: Bool = false // loseAlert activation for collections
     @Published var loseBlurRadius: CGFloat = 0
+    @Published var extraLives = UserDefaults.standard.integer(forKey: "extraLives")
 }

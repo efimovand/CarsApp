@@ -22,6 +22,7 @@ struct firstLaunchLogic: View {
                 .task {
                     UserDefaults.standard.set([], forKey: "unlockedCars")
                     UserDefaults.standard.set(0, forKey: "maxScore")
+                    UserDefaults.standard.set(0, forKey: "extraLives")
                     UserDefaults.standard.set(true, forKey: "isLaunchedBefore")
                 }
         }
