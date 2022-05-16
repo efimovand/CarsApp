@@ -29,41 +29,41 @@ struct librarySingleView: View {
                 
                 HStack(spacing: 19){
                         
-                    libraryElement("", "")
+                    libraryElement("mclaren f1", "mclaren f1_locked")
                     
-                    libraryElement("", "")
+                    libraryElement("jaguar xjs", "jaguar xjs_locked")
                     
-                    libraryElement("", "")
+                    libraryElement("lamborghini diablo", "lamborghini diablo_locked")
                         
                     }
                 
                 HStack(spacing: 19){
                         
-                    libraryElement("", "")
+                    libraryElement("abarth 500", "abarth 500_locked")
                     
-                    libraryElement("", "")
+                    libraryElement("fiat 500", "fiat 500_locked")
                     
-                    libraryElement("", "")
+                    libraryElement("vw beetle", "vw beetle_locked")
+                        
+                    }
+                
+                HStack(spacing: 19){
+                    
+                    libraryElement("mazda mx5", "mazda mx5_locked")
+                    
+                    libraryElement("mazda rx7", "mazda rx7_locked")
+                    
+                    libraryElement("nissan fairylady", "nissan fairylady_locked")
                         
                     }
                 
                 HStack(spacing: 19){
                         
-                    libraryElement("", "")
-                    
-                    libraryElement("", "")
-                    
-                    libraryElement("", "")
-                        
-                    }
-                
-                HStack(spacing: 19){
-                        
-                    libraryElement("", "")
-                    
-                    libraryElement("", "")
-                    
-                    libraryElement("", "")
+//                    libraryElement("", "")
+//                    
+//                    libraryElement("", "")
+//                    
+//                    libraryElement("", "")
                         
                     }
                 

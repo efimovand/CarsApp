@@ -34,13 +34,10 @@ struct menuView: View {
                             .padding(.all, -50)
                         
                         // Logo
-                        RoundedRectangle(cornerRadius: 40)
-                            .foregroundColor(Color(red: 235, green: 0, blue: 255))
-                            .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.172)
-                            .overlay(Text("Logo")
-                                .foregroundColor(Color.white)
-                                .font(Font.custom("PorterSansBlock", size: 45)))
-                            .offset(y: -18)
+                        Image("logo")
+                            .resizable()
+                            .frame(width: 290, height: 290)
+                            .offset(y: -80)
                         
                     }
                     

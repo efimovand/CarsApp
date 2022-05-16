@@ -11,7 +11,7 @@ struct gameView: View {
     
     @EnvironmentObject var data: UserData
     
-    @State var cars = ["abarth 500", "alfa romeo 4c", "alfa romeo c39", "alfa romeo stradale", "aston martin db11", "audi 100 avant", "audi r18", "bmw m3 e36", "bmw m3 e46", "bmw m3 e92", "bmw m635 e24", "bmw x1", "bugatti chiron", "caterham 21", "charger rt", "chevrolet camaro", "citroen ds23", "devel sixteen", "dome zero", "fiat 500", "ford gt 40", "honda civic", "hyundai i20n", "jaguar xjs", "lamborghini diablo", "lancia 037", "lotus europa", "maserati mc12", "maybach sw38", "mazda mx5", "mazda rx7", "mclaren f1", "mercedes a45", "mercedes w25", "mitsubishi evo 7", "mitsubishi evo 8", "nissan fairylady", "nissan gtr r32", "nissan gtr r34", "nissan gtr r35", "nissan silvia s13", "nissan silvia s15", "oldsmobile golden rocket", "porsche 911", "renault 19 16s", "renault clio", "renault megane", "subaru impreza", "suzuki hustler", "suzuki swift", "toyota corolla", "toyota fjcruiser", "toyota gt86", "toyota lc FJ43", "toyota lc76", "toyota mr2", "toyota supra", "vw beetle"].shuffled()
+    @State var cars = ["abarth 500", "alfa romeo 4c", "alfa romeo c39", "alfa romeo stradale", "aston martin db11", "audi 100 avant", "audi r18", "bmw m3 e36", "bmw m3 e46", "bmw m3 e92", "bmw m635 e24", "bmw x1", "bugatti chiron", "caterham 21", "charger rt", "chevrolet camaro", "citroen ds23", "devel sixteen", "dome zero", "fiat 500", "ford gt 40", "honda civic", "hyundai i20n", "jaguar xjs", "lamborghini diablo", "lancia 037", "lotus europa", "maserati mc12", "maybach sw38", "mazda mx5", "mazda rx7", "mclaren f1", "mercedes a45", "mercedes w25", "mitsubishi evo 7", "mitsubishi evo 8", "nissan fairylady", "nissan gtr r32", "nissan gtr r34", "nissan gtr r35", "nissan silvia s13", "nissan silvia s15", "oldsmobile gr", "porsche 911", "renault 19 16s", "renault clio", "renault megane", "subaru impreza", "suzuki hustler", "suzuki swift", "toyota corolla", "toyota fjcruiser", "toyota gt86", "toyota lc FJ43", "toyota lc76", "toyota mr2", "toyota supra", "vw beetle"].shuffled()
     
     @State var collection_1 = [collection_rx7().self]
     @State var collection_2 = [collection_mx5().self]
@@ -52,10 +52,14 @@ struct gameView: View {
                             
                             ForEach(0..<4) { number in
                                 
+                                Button(action: {
+                                    answeredSingle(number)
+                                }) {
+                                
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
                                         .foregroundColor(Color.white)
-                                        .frame(width: 272, height: 55)
+                                        .frame(width: UIScreen.screenWidth * 0.7253, height: UIScreen.screenHeight * 0.06773)
                                         .opacity(0.1)
                                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.60), Color(red: 1, green: 1, blue: 1, opacity: 0.40)]), startPoint: .leading, endPoint: .trailing), lineWidth: 3))
                                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
@@ -63,9 +67,9 @@ struct gameView: View {
                                     Text(cars[number])
                                         .foregroundColor(Color.white)
                                         .font(Font.custom("PorterSansBlock", size: 15))
-                                        .onTapGesture(perform: {
-                                            answeredSingle(number)
-                                        })
+                                    
+                                }
+                                        
                                 }
                                 
                             }
