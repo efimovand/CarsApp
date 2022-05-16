@@ -74,7 +74,8 @@ struct gameView: View {
                                 
                             }
                             
-                        }
+                        }.preferredColorScheme(.light)
+                            .disabled(loseAlertShown ? true : false)
                         
                     }
                     
@@ -119,6 +120,7 @@ struct gameView: View {
                     }.opacity(collectionNumber == 1 ? 1 : 0)
                     
                 }.opacity(((data.score % 10 == 0) || (data.score % 10 == 5)) ? 1 : 0)
+                    
                     
             }.blur(radius: data.loseBlurRadius)
                 .onChange(of: loseAlertShown || data.loseAlertCollection, perform: { value in

@@ -100,7 +100,7 @@ struct menuView: View {
                             
                         }
                         
-                    }
+                    }.preferredColorScheme(.light)
                     
                     Spacer()
                     
@@ -135,6 +135,7 @@ struct menuView: View {
                     .foregroundColor(Color("gridGray"))
                     .opacity(0.15))
                     .ignoresSafeArea())
+            .background(Color.orange)
             .statusBar(hidden: true)
         
     }
