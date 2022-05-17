@@ -17,55 +17,69 @@ struct librarySingleView: View {
             
             VStack(spacing: 19){
                 
-            HStack(spacing: 19){
+                HStack(spacing: 19){
                     
-                    libraryElement("alfa romeo 4c", "alfa romeo 4c_locked")
+                    //libraryElement("alfa romeo 4c")
                     
-                    libraryElement("nissan silvia s13", "nissan silvia s13_locked")
+                    CustomContextMenu(content: {
+                        
+                        libraryElement("alfa romeo 4c")
+                        
+                    }, preview: {
+                        
+                        Text("Hello")
+                        
+                    }, actions: {
+                        
+                        return UIMenu(title: "", children: [])
+                        
+                    })
                     
-                    libraryElement("toyota corolla", "toyota corolla_locked")
+                    libraryElement("nissan silvia s13")
+                    
+                    libraryElement("toyota corolla")
                     
                 }
                 
                 HStack(spacing: 19){
-                        
-                    libraryElement("mclaren f1", "mclaren f1_locked")
                     
-                    libraryElement("jaguar xjs", "jaguar xjs_locked")
+                    libraryElement("mclaren f1")
                     
-                    libraryElement("lamborghini diablo", "lamborghini diablo_locked")
-                        
-                    }
-                
-                HStack(spacing: 19){
-                        
-                    libraryElement("abarth 500", "abarth 500_locked")
+                    libraryElement("jaguar xjs")
                     
-                    libraryElement("fiat 500", "fiat 500_locked")
+                    libraryElement("lamborghini diablo")
                     
-                    libraryElement("vw beetle", "vw beetle_locked")
-                        
-                    }
+                }
                 
                 HStack(spacing: 19){
                     
-                    libraryElement("mazda mx5", "mazda mx5_locked")
+                    libraryElement("abarth 500")
                     
-                    libraryElement("mazda rx7", "mazda rx7_locked")
+                    libraryElement("fiat 500")
                     
-                    libraryElement("nissan fairylady", "nissan fairylady_locked")
-                        
-                    }
+                    libraryElement("vw beetle")
+                    
+                }
                 
                 HStack(spacing: 19){
-                        
-//                    libraryElement("", "")
-//                    
-//                    libraryElement("", "")
-//                    
-//                    libraryElement("", "")
-                        
-                    }
+                    
+                    libraryElement("mazda mx5")
+                    
+                    libraryElement("mazda rx7")
+                    
+                    libraryElement("nissan fairylady")
+                    
+                }
+                
+                HStack(spacing: 19){
+                    
+                    libraryElement("nissan gtr r32")
+                    
+                    libraryElement("nissan gtr r34")
+                    
+                    libraryElement("nissan gtr r35")
+                    
+                }
                 
             }
             
@@ -86,9 +100,11 @@ struct librarySingleView: View {
     }
     
     // function for creating library element with car
-    func libraryElement(_ car: String, _ lockedCar: String) -> some View {
+    func libraryElement(_ car: String) -> some View {
         
-        if data.unlockedCars.contains(car){
+        @State var lockedCar: String = car + "_locked"
+        
+        if !data.unlockedCars.contains(car){
             
             return AnyView(RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(Color.white)
@@ -114,6 +130,121 @@ struct librarySingleView: View {
     }
     
 }
+
+
+// Context Menu for elements
+struct CustomContextMenu<Content: View, Preview: View>: View {
+    
+    var content: Content
+    var preview: Preview
+    
+    var menu: UIMenu
+    
+    init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder preview: @escaping () -> Preview, actions: @escaping () -> UIMenu){
+        
+        self.content = content()
+        self.preview = preview()
+        self.menu = actions()
+        
+    }
+    
+    var body: some View{
+        
+        ZStack{
+            
+            content
+                .hidden()
+                .overlay(
+                    ContextMenuHelper(content: content, preview: preview, actions: menu)
+                )
+            
+        }
+        
+    }
+    
+}
+
+
+// Custom View for Context Menu
+struct ContextMenuHelper<Content: View, Preview: View>: UIViewRepresentable {
+    
+    var content: Content
+    var preview: Preview
+    var actions: UIMenu
+    
+    init(content: Content, preview: Preview, actions: UIMenu){
+        self.content = content
+        self.preview = preview
+        self.actions = actions
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(parent: self)
+    }
+    
+    func makeUIView(context: Context) -> UIView {
+        
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        let hostView = UIHostingController(rootView: content)
+        
+        hostView.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let constraints = [
+            hostView.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hostView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            hostView.view.widthAnchor.constraint(equalTo: view.widthAnchor),
+            hostView.view.heightAnchor.constraint(equalTo: view.heightAnchor),
+        ]
+        
+        view.addSubview(hostView.view)
+        view.addConstraints(constraints)
+        
+        let interaction = UIContextMenuInteraction(delegate: context.coordinator)
+        view.addInteraction(interaction)
+        
+        return view
+        
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        
+    }
+    
+    class Coordinator: NSObject, UIContextMenuInteractionDelegate{
+        
+        var parent: ContextMenuHelper
+        
+        init(parent: ContextMenuHelper){
+            self.parent = parent
+        }
+        
+        func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+            
+            return UIContextMenuConfiguration(identifier: nil) {
+                
+                let previewController = UIHostingController(rootView: self.parent.preview)
+                
+                previewController.view.backgroundColor = .purple
+                
+                return previewController
+                
+            } actionProvider: { items in
+                
+                return self.parent.actions
+                
+            }
+            
+        }
+        
+    }
+    
+}
+
 
 struct librarySingleView_Previews: PreviewProvider {
     static var previews: some View {
