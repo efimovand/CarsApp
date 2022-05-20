@@ -114,32 +114,44 @@ struct menuView: View {
                         }
                     })
                 
-                
-                // Settings Button
-                Button(action: {
-                    // settings
-                }) {
-                    Image("settings")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .opacity(0.5)
-                }.frame(width: UIScreen.screenWidth * 0.98, height: UIScreen.screenHeight * 0.95, alignment: .bottomTrailing)
-                
-                
-                // Extra Lives
-                Button(action: {
-                    addLifeAlertShown.toggle()
-                }) {
-                    Image("extraLife")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .overlay(Text(String(data.extraLives))
-                            .foregroundColor(Color.white)
-                            .font(Font.custom("PorterSansBlock", size: 20))
-                            .opacity(0.9)
-                            .offset(y: -1))
-                        .overlay(heart().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.50), Color(red: 1, green: 1, blue: 1, opacity: 0.30)]), startPoint: .leading, endPoint: .trailing), lineWidth: 1).frame(width: 59, height: 54))
-                }.frame(width: UIScreen.screenWidth * 0.98, height: UIScreen.screenHeight * 0.95, alignment: .bottomLeading)
+                // Lower Bar
+                ZStack{
+                    
+                    // background
+                    menuEllipse2()
+                        .foregroundColor(Color("ellipseOrange"))
+                        .opacity(0.6)
+                        .overlay(menuEllipse2().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.60), Color(red: 1, green: 1, blue: 1, opacity: 0.40)]), startPoint: .leading, endPoint: .trailing), lineWidth: 3))
+                        .frame(width: 500, height: 500)
+                        .offset(x: 58, y: UIScreen.screenHeight * 0.715)
+                    
+                    // Settings Button
+                    Button(action: {
+                        // settings
+                    }) {
+                        Image("settings")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .opacity(0.5)
+                    }.frame(width: UIScreen.screenWidth * 0.98, height: UIScreen.screenHeight * 0.93, alignment: .bottomTrailing)
+                    
+                    
+                    // Extra Lives
+                    Button(action: {
+                        addLifeAlertShown.toggle()
+                    }) {
+                        Image("extraLife")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .overlay(Text(String(data.extraLives))
+                                .foregroundColor(Color.white)
+                                .font(Font.custom("PorterSansBlock", size: 20))
+                                .opacity(0.9)
+                                .offset(x: 1, y: -2))
+                            .overlay(heart().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.50), Color(red: 1, green: 1, blue: 1, opacity: 0.30)]), startPoint: .leading, endPoint: .trailing), lineWidth: 1).frame(width: 59, height: 54))
+                    }.frame(width: UIScreen.screenWidth * 0.98, height: UIScreen.screenHeight * 0.95, alignment: .bottomLeading)
+                    
+                }
                 
                 if addLifeAlertShown {
                     addLifeAlertView(addLifeAlertShown: $addLifeAlertShown)
