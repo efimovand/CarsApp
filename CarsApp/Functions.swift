@@ -160,3 +160,28 @@ struct star: Shape {
         return path
     }
 }
+
+
+// heart shape
+struct heart: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        path.move(to: CGPoint(x: 0.63985*width, y: 0.00314*height))
+        path.addCurve(to: CGPoint(x: 0.4935*width, y: 0.08209*height), control1: CGPoint(x: 0.57305*width, y: 0.02219*height), control2: CGPoint(x: 0.54131*width, y: 0.03975*height))
+        path.addCurve(to: CGPoint(x: 0.32277*width, y: 0.00314*height), control1: CGPoint(x: 0.43978*width, y: 0.03401*height), control2: CGPoint(x: 0.40321*width, y: 0.01532*height))
+        path.addCurve(to: CGPoint(x: 0.20082*width, y: 0.0163*height), control1: CGPoint(x: 0.27402*width, y: -0.00228*height), control2: CGPoint(x: 0.24738*width, y: 0.00143*height))
+        path.addCurve(to: CGPoint(x: 0.0081*width, y: 0.25099*height), control1: CGPoint(x: 0.11086*width, y: 0.05023*height), control2: CGPoint(x: 0.02089*width, y: 0.14488*height))
+        path.addCurve(to: CGPoint(x: 0.13985*width, y: 0.60841*height), control1: CGPoint(x: -0.02292*width, y: 0.41233*height), control2: CGPoint(x: 0.03817*width, y: 0.5069*height))
+        path.addLine(to: CGPoint(x: 0.46911*width, y: 0.96367*height))
+        path.addLine(to: CGPoint(x: 0.4935*width, y: 0.98998*height))
+        path.addLine(to: CGPoint(x: 0.5179*width, y: 0.96367*height))
+        path.addLine(to: CGPoint(x: 0.84716*width, y: 0.60841*height))
+        path.addCurve(to: CGPoint(x: 0.90814*width, y: 0.10841*height), control1: CGPoint(x: 0.97133*width, y: 0.49043*height), control2: CGPoint(x: 1.06139*width, y: 0.29117*height))
+        path.addCurve(to: CGPoint(x: 0.78619*width, y: 0.0163*height), control1: CGPoint(x: 0.87121*width, y: 0.06206*height), control2: CGPoint(x: 0.84386*width, y: 0.04109*height))
+        path.addCurve(to: CGPoint(x: 0.63985*width, y: 0.00314*height), control1: CGPoint(x: 0.72757*width, y: -0.00066*height), control2: CGPoint(x: 0.69606*width, y: -0.00312*height))
+        path.closeSubpath()
+        return path
+    }
+}

@@ -11,6 +11,8 @@ struct loseAlertView: View {
     
     @EnvironmentObject var data: UserData
     
+    @State var addLifeAlert = false
+    
     @Binding var loseAlertShown: Bool
     @State var loseAlertOpacity: Double = 0
     @State var isLoading = false
@@ -29,6 +31,8 @@ struct loseAlertView: View {
         }
     
     var body: some View {
+        
+        ZStack{
         
         VStack(spacing: 16){
             
@@ -102,12 +106,15 @@ struct loseAlertView: View {
             .onTapGesture(perform: {
                 
                 if (data.extraLives < 1){
-                    // no extra lives
+                    addLifeAlert = true
                 }
                 else {
                     // extraLive's use animation
                     loseAlertShown = false
                     data.loseAlertCollection = false
+                    
+                    data.extraLives -= 1
+                    UserDefaults.standard.set(data.extraLives, forKey: "extraLives")
                 }
                 
             })
@@ -151,6 +158,14 @@ struct loseAlertView: View {
             }
             
         }.opacity(loseAlertOpacity)
+                .opacity(addLifeAlert ? 0 : 1)
+            
+            if addLifeAlert{
+                addLifeAlertView(addLifeAlertShown: $addLifeAlert)
+                    .scaleEffect(x: 1.2, y: 1.2)
+            }
+            
+        }
         
     }
     

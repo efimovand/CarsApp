@@ -42,7 +42,7 @@ struct collection_rx7: View {
                 }
                 
             }.padding(.top)
-                .disabled(data.loseBlurRadius != 0 ? true : false)
+                .disabled(data.globalBlurRadius != 0 ? true : false)
             
             // Question
             Text("Guess the '\(cars[correctAnswer])'")
@@ -143,7 +143,7 @@ struct collection_mx5: View {
                 }
                 
             }.padding(.top)
-                .disabled(data.loseBlurRadius != 0 ? true : false)
+                .disabled(data.globalBlurRadius != 0 ? true : false)
             
             // Question
             Text("Guess the '\(cars[correctAnswer])'")
@@ -244,7 +244,7 @@ struct collection_jimny: View {
                 }
                 
             }.padding(.top)
-                .disabled(data.loseBlurRadius != 0 ? true : false)
+                .disabled(data.globalBlurRadius != 0 ? true : false)
             
             // Question
             Text("Guess the '\(cars[correctAnswer])'")

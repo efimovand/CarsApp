@@ -12,6 +12,7 @@
 		5525F7A028286B2F00B566F3 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F79F28286B2F00B566F3 /* gameView.swift */; };
 		5525F7A128286E4D00B566F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5580378F282822BD00B79916 /* Assets.xcassets */; };
 		5525F7A32828829100B566F3 /* loseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F7A22828829100B566F3 /* loseAlertView.swift */; };
+		556BB53D283707E000D92FDF /* addLifeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556BB53C283707E000D92FDF /* addLifeAlertView.swift */; };
 		556EE2DE28299EF7008014E1 /* firstLaunchLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EE2DD28299EF7008014E1 /* firstLaunchLogic.swift */; };
 		556EE2E22829B3A4008014E1 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EE2E12829B3A4008014E1 /* UserData.swift */; };
 		5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580378B282822BC00B79916 /* CarsAppApp.swift */; };
@@ -46,6 +47,7 @@
 		5519F5F9282ADAFD006995D6 /* collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collections.swift; sourceTree = "<group>"; };
 		5525F79F28286B2F00B566F3 /* gameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
 		5525F7A22828829100B566F3 /* loseAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loseAlertView.swift; sourceTree = "<group>"; };
+		556BB53C283707E000D92FDF /* addLifeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addLifeAlertView.swift; sourceTree = "<group>"; };
 		556EE2DD28299EF7008014E1 /* firstLaunchLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstLaunchLogic.swift; sourceTree = "<group>"; };
 		556EE2E12829B3A4008014E1 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		55803788282822BC00B79916 /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				556EE2E12829B3A4008014E1 /* UserData.swift */,
 				556EE2DD28299EF7008014E1 /* firstLaunchLogic.swift */,
 				558037B5282822E100B79916 /* menuView.swift */,
+				556BB53C283707E000D92FDF /* addLifeAlertView.swift */,
 				5507115A282B30810070D4E6 /* librarySingleView.swift */,
 				5525F79F28286B2F00B566F3 /* gameView.swift */,
 				5519F5F9282ADAFD006995D6 /* collections.swift */,
@@ -287,6 +290,7 @@
 				556EE2E22829B3A4008014E1 /* UserData.swift in Sources */,
 				556EE2DE28299EF7008014E1 /* firstLaunchLogic.swift in Sources */,
 				5519F5FA282ADAFD006995D6 /* collections.swift in Sources */,
+				556BB53D283707E000D92FDF /* addLifeAlertView.swift in Sources */,
 				5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */,
 				5525F7A32828829100B566F3 /* loseAlertView.swift in Sources */,
 				558037B8282824AD00B79916 /* Functions.swift in Sources */,

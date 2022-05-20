@@ -127,11 +127,11 @@ struct gameView: View {
                 }.opacity(((data.score % 10 == 0) || (data.score % 10 == 5)) ? 1 : 0)
                     
                     
-            }.blur(radius: data.loseBlurRadius)
+            }.blur(radius: data.globalBlurRadius)
                 .onChange(of: loseAlertShown || data.loseAlertCollection, perform: { value in
                     switch value {
-                    case true: withAnimation(.linear(duration: 0.3)) { data.loseBlurRadius = 3 }
-                    case false: withAnimation(.linear(duration: 0.3)) { data.loseBlurRadius = 0 }
+                    case true: withAnimation(.linear(duration: 0.3)) { data.globalBlurRadius = 3 }
+                    case false: withAnimation(.linear(duration: 0.3)) { data.globalBlurRadius = 0 }
                     }
                 })
             
