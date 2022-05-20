@@ -109,7 +109,6 @@ struct loseAlertView: View {
                     addLifeAlert = true
                 }
                 else {
-                    // extraLive's use animation
                     loseAlertShown = false
                     data.loseAlertCollection = false
                     
@@ -160,11 +159,13 @@ struct loseAlertView: View {
         }.opacity(loseAlertOpacity)
                 .opacity(addLifeAlert ? 0 : 1)
             
+            
+            // Add Life Alert
             if addLifeAlert{
                 addLifeAlertView(addLifeAlertShown: $addLifeAlert)
                     .scaleEffect(x: 1.2, y: 1.2)
             }
-            
+                        
         }
         
     }

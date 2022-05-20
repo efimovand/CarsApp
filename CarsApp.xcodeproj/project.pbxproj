@@ -15,6 +15,7 @@
 		556BB53D283707E000D92FDF /* addLifeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556BB53C283707E000D92FDF /* addLifeAlertView.swift */; };
 		556EE2DE28299EF7008014E1 /* firstLaunchLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EE2DD28299EF7008014E1 /* firstLaunchLogic.swift */; };
 		556EE2E22829B3A4008014E1 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EE2E12829B3A4008014E1 /* UserData.swift */; };
+		557B696528385008004EF514 /* libraryCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B696428385008004EF514 /* libraryCollectionsView.swift */; };
 		5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580378B282822BC00B79916 /* CarsAppApp.swift */; };
 		55803793282822BD00B79916 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55803792282822BD00B79916 /* Preview Assets.xcassets */; };
 		5580379D282822BD00B79916 /* CarsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580379C282822BD00B79916 /* CarsAppTests.swift */; };
@@ -50,6 +51,8 @@
 		556BB53C283707E000D92FDF /* addLifeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addLifeAlertView.swift; sourceTree = "<group>"; };
 		556EE2DD28299EF7008014E1 /* firstLaunchLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstLaunchLogic.swift; sourceTree = "<group>"; };
 		556EE2E12829B3A4008014E1 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		557B696228384F47004EF514 /* libraryTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = libraryTabBar.swift; sourceTree = "<group>"; };
+		557B696428385008004EF514 /* libraryCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = libraryCollectionsView.swift; sourceTree = "<group>"; };
 		55803788282822BC00B79916 /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5580378B282822BC00B79916 /* CarsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsAppApp.swift; sourceTree = "<group>"; };
 		5580378F282822BD00B79916 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 				558037B5282822E100B79916 /* menuView.swift */,
 				556BB53C283707E000D92FDF /* addLifeAlertView.swift */,
 				5507115A282B30810070D4E6 /* librarySingleView.swift */,
+				557B696428385008004EF514 /* libraryCollectionsView.swift */,
+				557B696228384F47004EF514 /* libraryTabBar.swift */,
 				5525F79F28286B2F00B566F3 /* gameView.swift */,
 				5519F5F9282ADAFD006995D6 /* collections.swift */,
 				5525F7A22828829100B566F3 /* loseAlertView.swift */,
@@ -287,6 +292,7 @@
 			files = (
 				5525F7A028286B2F00B566F3 /* gameView.swift in Sources */,
 				558037B6282822E100B79916 /* menuView.swift in Sources */,
+				557B696528385008004EF514 /* libraryCollectionsView.swift in Sources */,
 				556EE2E22829B3A4008014E1 /* UserData.swift in Sources */,
 				556EE2DE28299EF7008014E1 /* firstLaunchLogic.swift in Sources */,
 				5519F5FA282ADAFD006995D6 /* collections.swift in Sources */,

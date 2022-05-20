@@ -104,7 +104,7 @@ struct librarySingleView: View {
         
         @State var lockedCar: String = car + "_locked"
         
-        if !data.unlockedCars.contains(car){
+        if data.unlockedCars.contains(car){
             
             return AnyView(RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(Color.white)
@@ -119,8 +119,7 @@ struct librarySingleView: View {
             
             return AnyView(RoundedRectangle(cornerRadius: 20)
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 0.54, green: 0.54, blue: 0.54), Color(red: 0.16, green: 0.16, blue: 0.16)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                .opacity(1)
-                .overlay(RoundedRectangle(cornerRadius: 20).stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.60), Color(red: 1, green: 1, blue: 1, opacity: 0.40)]), startPoint: .leading, endPoint: .trailing), lineWidth: 1))
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.40), Color(red: 1, green: 1, blue: 1, opacity: 0.30)]), startPoint: .leading, endPoint: .trailing), lineWidth: 1))
                 .frame(width: 100, height: 100)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
                 .overlay(libraryCarImage(Image(lockedCar))))
