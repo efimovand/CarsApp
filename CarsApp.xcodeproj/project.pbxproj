@@ -24,6 +24,7 @@
 		558037B6282822E100B79916 /* menuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558037B5282822E100B79916 /* menuView.swift */; };
 		558037B8282824AD00B79916 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558037B7282824AD00B79916 /* Functions.swift */; };
 		559AE2EA282831C300EC7C3E /* customFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 559AE2E9282831C300EC7C3E /* customFont.ttf */; };
+		55C7995D2839624100969277 /* libraryTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B696228384F47004EF514 /* libraryTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +298,7 @@
 				556EE2DE28299EF7008014E1 /* firstLaunchLogic.swift in Sources */,
 				5519F5FA282ADAFD006995D6 /* collections.swift in Sources */,
 				556BB53D283707E000D92FDF /* addLifeAlertView.swift in Sources */,
+				55C7995D2839624100969277 /* libraryTabBar.swift in Sources */,
 				5580378C282822BC00B79916 /* CarsAppApp.swift in Sources */,
 				5525F7A32828829100B566F3 /* loseAlertView.swift in Sources */,
 				558037B8282824AD00B79916 /* Functions.swift in Sources */,

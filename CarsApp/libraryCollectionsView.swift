@@ -17,9 +17,10 @@ struct libraryCollectionsView: View {
         
         VStack(spacing: -35){
         
+        // Collections
         ZStack{
             
-            ForEach(0..<3/* collections.count */) { number in
+            ForEach(0..<1/* collections.count */) { number in
                 
                 Image(collections[number])
                     .resizable()
@@ -34,15 +35,24 @@ struct libraryCollectionsView: View {
                     ZStack{
                         Image("sa22c_locked")
                             .resizable()
-                            .frame(width: 190, height: 190)
-                            .offset(y: -175)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("sa22c") ? 0 : 1)
                         
                         Image("fc3s_locked")
                             .resizable()
-                            .frame(width: 190, height: 190)
-                            .offset(y: 12)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("fc3s") ? 0 : 1)
+                        
+                        Image("fd3s_locked")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .ignoresSafeArea()
+                            .opacity(data.unlockedCars.contains("fd3s") ? 0 : 1)
                     }
                     
                 case 1: // mx5
