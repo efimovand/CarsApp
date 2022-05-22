@@ -24,14 +24,14 @@ struct TabItemView: View {
                 Image(isSelected ? data.selectedImage : data.image)
                     .resizable()
                     .frame(width: 74, height: 74)
-                    .offset(y: UIScreen.screenHeight >= 812 ? 7 : 11)
+                    .offset(y: UIScreen.screenHeight >= 812 ? 4 : 8)
             }
             else if (data.image == "collectionTab" && data.selectedImage == "collectionTab_a"){
                 Image(isSelected ? data.selectedImage : data.image)
                     .resizable()
                     .frame(width: 74, height: 74)
                     .padding(.top, -5)
-                    .offset(y: UIScreen.screenHeight >= 812 ? 8 : 12)
+                    .offset(y: UIScreen.screenHeight >= 812 ? 5 : 9)
             }
         }
     }
@@ -61,7 +61,7 @@ struct TabBottomView: View {
             Spacer(minLength: 105)
             
         }
-        .frame(width: UIScreen.screenWidth + 2, height: UIScreen.screenHeight * 0.09 + 2)
+        .frame(width: UIScreen.screenWidth + 2, height: UIScreen.screenHeight * 0.1 + 2)
         .background(Rectangle()
             .fill(Color("lowerBarOrange").opacity(0.5))
             .overlay(Rectangle().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.50), Color(red: 1, green: 1, blue: 1, opacity: 0.50)]), startPoint: .trailing, endPoint: .leading), lineWidth: 2)).offset(y: 2))

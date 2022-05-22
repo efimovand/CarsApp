@@ -53,7 +53,7 @@ struct librarySingleView: View {
                             
                             libraryElement("mclaren f1")
                             
-                            libraryElement("jaguar xjs")
+                            libraryElement("jaguar xjs") // !
                             
                             libraryElement("lamborghini diablo")
                             
@@ -61,27 +61,27 @@ struct librarySingleView: View {
                         
                         HStack(spacing: 19){
                             
-                            libraryElement("abarth 500")
+                            libraryElement("abarth 500") // !
                             
                             libraryElement("fiat 500")
                             
-                            libraryElement("vw beetle a4")
+                            libraryElement("bmw m3 e46")
                             
                         }
                         
                         HStack(spacing: 19){
                             
-                            libraryElement("mazda mx5")
+                            libraryElement("mazda mx5") // !
                             
                             libraryElement("mazda rx7")
                             
-                            libraryElement("nissan fairylady")
+                            libraryElement("nissan fairylady") // !
                             
                         }
                         
                         HStack(spacing: 19){
                             
-                            libraryElement("nissan gtr r32")
+                            libraryElement("nissan gtr r32") // !
                             
                             libraryElement("nissan gtr r34")
                             
@@ -258,7 +258,7 @@ struct librarySingleView: View {
                     
                 }.offset(x: -(self.backgroundOffset * g.size.width))
                     .animation(.default, value: self.backgroundOffset)
-                    .padding(.top, 70)
+                    .padding(.top, 60)
                     .padding(.leading)
                 
                 // Scroll Dots
@@ -267,29 +267,29 @@ struct librarySingleView: View {
                     // Page 1
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 0) ? 0.75 : 0.55)
+                        .opacity((self.backgroundOffset == 0) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
                     
                     // Page 2
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 1) ? 0.75 : 0.55)
+                        .opacity((self.backgroundOffset == 1) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
                     
                     // Page 3
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 2) ? 0.75 : 0.55)
+                        .opacity((self.backgroundOffset == 2) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
                     
                     // Page 4
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 3) ? 0.75 : 0.55)
+                        .opacity((self.backgroundOffset == 3) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
                     
                 }.animation(.default, value: self.backgroundOffset)
-                    .position(x: g.size.width / 2, y: g.size.height / 1.18)
+                    .position(x: g.size.width / 2, y: g.size.height / 1.21)
                 
             }.gesture(
             DragGesture()

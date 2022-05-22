@@ -13,7 +13,7 @@ struct libraryCollectionsView: View {
     
     @State var collections = ["rx7", "mx5", "jimny"]
     
-    @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.09 + 1
+    @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.1 + 1
     
     var body: some View {
         
@@ -22,7 +22,7 @@ struct libraryCollectionsView: View {
         // Collections
         ZStack{
             
-            ForEach(0..<1/* collections.count */) { number in
+            ForEach(0..<2/* collections.count */) { number in
                 
                 Image(collections[number])
                     .resizable()
