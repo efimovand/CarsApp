@@ -288,8 +288,8 @@ struct librarySingleView: View {
                         .opacity((self.backgroundOffset == 3) ? 0.75 : 0.55)
                         .frame(width: 14.5, height: 14.5)
                     
-                }.offset(x: UIScreen.screenWidth / 2.45, y: UIScreen.screenHeight / 1.18)
-                    .animation(.default, value: self.backgroundOffset)
+                }.animation(.default, value: self.backgroundOffset)
+                    .position(x: g.size.width / 2, y: g.size.height / 1.18)
                 
             }.gesture(
             DragGesture()
