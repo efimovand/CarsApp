@@ -13,6 +13,8 @@ struct librarySingleView: View {
     
     @State var backgroundOffset: CGFloat = 0
     
+    @State var sheetOn: Bool = false
+    
     var body: some View {
         
         ZStack{
@@ -53,7 +55,7 @@ struct librarySingleView: View {
                             
                             libraryElement("mclaren f1")
                             
-                            libraryElement("jaguar xjs") // !
+                            libraryElement("jaguar xjs")
                             
                             libraryElement("lamborghini diablo")
                             
@@ -61,27 +63,27 @@ struct librarySingleView: View {
                         
                         HStack(spacing: 19){
                             
-                            libraryElement("abarth 500") // !
+                            libraryElement("abarth 500")
                             
                             libraryElement("fiat 500")
                             
-                            libraryElement("bmw m3 e46")
+                            libraryElement("vw beetle classic")
                             
                         }
                         
                         HStack(spacing: 19){
                             
-                            libraryElement("mazda mx5") // !
+                            libraryElement("mazda mx5")
                             
                             libraryElement("mazda rx7")
                             
-                            libraryElement("nissan fairylady") // !
+                            libraryElement("nissan fairylady")
                             
                         }
                         
                         HStack(spacing: 19){
                             
-                            libraryElement("nissan gtr r32") // !
+                            libraryElement("nissan gtr r32")
                             
                             libraryElement("nissan gtr r34")
                             
@@ -96,11 +98,11 @@ struct librarySingleView: View {
                         
                         HStack(spacing: 19){
                             
-                            libraryElement("vw beetle classic")
+                            libraryElement("hyundai i20n")
                             
                             libraryElement("renault clio")
                             
-                            libraryElement("trenault megane")
+                            libraryElement("renault megane")
                             
                         }
                         
@@ -140,7 +142,7 @@ struct librarySingleView: View {
                             
                             libraryElement("bmw x1")
                             
-                            libraryElement("") // (?) BMW
+                            libraryElement("vw beetle a4") // (?) BMW
                             
                         }
                         

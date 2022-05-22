@@ -67,7 +67,7 @@ struct gameView: View {
                                     
                                     Text(cars[number])
                                         .foregroundColor(Color.white)
-                                        .font(Font.custom("PorterSansBlock", size: 15))
+                                        .font((cars[number] != "alfa romeo stradale" && cars[number] != "lamborghini diablo") ? Font.custom("PorterSansBlock", size: 15) : Font.custom("PorterSansBlock", size: 13))
                                     
                                 }
                                         
