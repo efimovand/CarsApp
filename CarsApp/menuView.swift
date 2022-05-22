@@ -160,7 +160,7 @@ struct menuView: View {
             
             // Library
             if data.library {
-                librarySingleView()
+                libraryTabBar()
             }
             
         }.ignoresSafeArea()

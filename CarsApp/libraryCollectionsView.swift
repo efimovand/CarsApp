@@ -13,9 +13,11 @@ struct libraryCollectionsView: View {
     
     @State var collections = ["rx7", "mx5", "jimny"]
     
+    @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.09 + 1
+    
     var body: some View {
         
-        VStack(spacing: -35){
+        ZStack{
         
         // Collections
         ZStack{
@@ -25,7 +27,7 @@ struct libraryCollectionsView: View {
                 Image(collections[number])
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                     .ignoresSafeArea()
                 
                 switch number {
@@ -36,21 +38,21 @@ struct libraryCollectionsView: View {
                         Image("sa22c_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("sa22c") ? 0 : 1)
                         
                         Image("fc3s_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("fc3s") ? 0 : 1)
                         
                         Image("fd3s_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("fd3s") ? 0 : 1)
                     }
@@ -61,28 +63,28 @@ struct libraryCollectionsView: View {
                         Image("na_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("na") ? 0 : 1)
                         
                         Image("nb_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("nb") ? 0 : 1)
                         
                         Image("nc_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("nc") ? 0 : 1)
                         
                         Image("nd_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("nd") ? 0 : 1)
                     }
@@ -93,28 +95,28 @@ struct libraryCollectionsView: View {
                         Image("1970_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("1970") ? 0 : 1)
                         
                         Image("1981_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("1981") ? 0 : 1)
                         
                         Image("1998_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("1998") ? 0 : 1)
                         
                         Image("2018_locked")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight - 50, alignment: .center)
+                            .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                             .ignoresSafeArea()
                             .opacity(data.unlockedCars.contains("2018") ? 0 : 1)
                     }
@@ -127,12 +129,13 @@ struct libraryCollectionsView: View {
             
         }
             
-            // Tab Bar Prototype
-            Rectangle()
-                .foregroundColor(.orange)
-                .frame(width: UIScreen.screenWidth, height: 90)
-            
-        }
+        }.ignoresSafeArea()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background((LinearGradient(colors: [Color("lightOrange"), Color("darkOrange")], startPoint: .top, endPoint: .bottom))
+                .overlay(gridView()
+                    .foregroundColor(Color("gridGray"))
+                    .opacity(0.15))
+                    .ignoresSafeArea())
         
     }
     

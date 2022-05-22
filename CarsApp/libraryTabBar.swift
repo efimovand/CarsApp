@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 // Buttons' struct
 struct TabItemData {
     let image: String
@@ -22,18 +20,18 @@ struct TabItemView: View {
     
     var body: some View {
         VStack {
-            if (data.image == "singleCar" && data.selectedImage == "singleCar_a"){
+            if (data.image == "singleTab" && data.selectedImage == "singleTab_a"){
                 Image(isSelected ? data.selectedImage : data.image)
                     .resizable()
                     .frame(width: 74, height: 74)
-                    .offset(y: UIScreen.screenHeight >= 812 ? 1 : 5)
+                    .offset(y: UIScreen.screenHeight >= 812 ? 7 : 11)
             }
-            else if (data.image == "manyCars" && data.selectedImage == "emanyCars_a"){
+            else if (data.image == "collectionTab" && data.selectedImage == "collectionTab_a"){
                 Image(isSelected ? data.selectedImage : data.image)
                     .resizable()
-                    .frame(width: 81, height: 81)
-                    .padding(.top, -7)
-                    .offset(y: UIScreen.screenHeight >= 812 ? 2 : 6)
+                    .frame(width: 74, height: 74)
+                    .padding(.top, -5)
+                    .offset(y: UIScreen.screenHeight >= 812 ? 8 : 12)
             }
         }
     }
@@ -43,15 +41,13 @@ struct TabItemView: View {
 struct TabBottomView: View {
     
     let tabbarItems: [TabItemData]
-    var height: CGFloat = 92
-    var width: CGFloat = UIScreen.screenWidth
     @Binding var selectedIndex: Int
     
     var body: some View {
-        HStack {
+        HStack(spacing: 60) {
             Spacer(minLength: 105)
             
-            ForEach(tabbarItems.indices) { index in
+            ForEach(0..<2) { index in
                 let item = tabbarItems[index]
                 Button {
                     self.selectedIndex = index
@@ -62,13 +58,13 @@ struct TabBottomView: View {
                     .offset(y: -8)
                 
             }
-            Spacer(minLength: 103)
+            Spacer(minLength: 105)
             
         }
-        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.113)
-        .background(RoundedCorners(tl: 20, tr: 20, bl: 0, br: 0)
-                        .fill(Color(red: 1, green: 1, blue: 1, opacity: 0.40))
-                        .overlay(RoundedCorners(tl: 20, tr: 20, bl: 0, br: 0).stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.50), Color(red: 1, green: 1, blue: 1, opacity: 0.50)]), startPoint: .trailing, endPoint: .leading), lineWidth: 1)))
+        .frame(width: UIScreen.screenWidth + 2, height: UIScreen.screenHeight * 0.09 + 2)
+        .background(Rectangle()
+            .fill(Color("lowerBarOrange").opacity(0.5))
+            .overlay(Rectangle().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.50), Color(red: 1, green: 1, blue: 1, opacity: 0.50)]), startPoint: .trailing, endPoint: .leading), lineWidth: 2)).offset(y: 2))
     }
 }
 
@@ -82,7 +78,7 @@ struct CustomTabView<Content: View>: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedIndex) {
-                ForEach(tabs.indices) { index in
+                ForEach(0..<2) { index in
                     content(index)
                         .tag(index)
                 }
@@ -106,15 +102,15 @@ enum TabType: Int, CaseIterable {
     var tabItem: TabItemData {
         switch self {
         case .main:
-            return TabItemData(image: "singleCar", selectedImage: "singleCar_a")
+            return TabItemData(image: "singleTab", selectedImage: "singleTab_a")
         case .economy:
-            return TabItemData(image: "manyCars", selectedImage: "manyCars_a")
+            return TabItemData(image: "collectionTab", selectedImage: "collectionTab_a")
         }
     }
 }
 
 // Buttons' navigation
-struct MainTabView: View {
+struct libraryTabBar: View {
     
     @State var selectedIndex: Int = 0
     
@@ -136,8 +132,9 @@ struct MainTabView: View {
     }
 }
 
-struct MainTabView_Previews: PreviewProvider {
+struct libraryTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+        libraryTabBar()
+            .environmentObject(UserData())
     }
 }

@@ -11,77 +11,307 @@ struct librarySingleView: View {
     
     @EnvironmentObject var data: UserData
     
+    @State var backgroundOffset: CGFloat = 0
+    
     var body: some View {
         
         ZStack{
             
-            VStack(spacing: 19){
+            GeometryReader { g in
                 
-                HStack(spacing: 19){
+                // Pages
+                HStack(spacing: 38){
                     
-                    libraryElement("alfa romeo 4c")
+                    // Page 1
+                    VStack(spacing: 19){
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("alfa romeo 4c")
+                            
+                            //                    CustomContextMenu(content: {
+                            //
+                            //                        libraryElement("alfa romeo 4c")
+                            //
+                            //                    }, preview: {
+                            //
+                            //                        Text("Hello")
+                            //
+                            //                    }, actions: {
+                            //
+                            //                        return UIMenu(title: "", children: [])
+                            //
+                            //                    })
+                            
+                            libraryElement("nissan silvia s13")
+                            
+                            libraryElement("toyota corolla")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("mclaren f1")
+                            
+                            libraryElement("jaguar xjs")
+                            
+                            libraryElement("lamborghini diablo")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("abarth 500")
+                            
+                            libraryElement("fiat 500")
+                            
+                            libraryElement("vw beetle a4")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("mazda mx5")
+                            
+                            libraryElement("mazda rx7")
+                            
+                            libraryElement("nissan fairylady")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("nissan gtr r32")
+                            
+                            libraryElement("nissan gtr r34")
+                            
+                            libraryElement("nissan gtr r35")
+                            
+                        }
+                        
+                    }.padding(.leading, 2)
                     
-//                    CustomContextMenu(content: {
-//
-//                        libraryElement("alfa romeo 4c")
-//
-//                    }, preview: {
-//
-//                        Text("Hello")
-//
-//                    }, actions: {
-//
-//                        return UIMenu(title: "", children: [])
-//
-//                    })
+                    // Page 2
+                    VStack(spacing: 19){
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("vw beetle classic")
+                            
+                            libraryElement("renault clio")
+                            
+                            libraryElement("trenault megane")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("subaru impreza")
+                            
+                            libraryElement("mitsubishi evo 7")
+                            
+                            libraryElement("mitsubishi evo 8")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("toyota corolla")
+                            
+                            libraryElement("toyota mr2")
+                            
+                            libraryElement("honda civic")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("bmw m635 e24")
+                            
+                            libraryElement("bmw m3 e36")
+                            
+                            libraryElement("bmw m3 e46")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("bmw m635 e92")
+                            
+                            libraryElement("bmw x1")
+                            
+                            libraryElement("") // (?) BMW
+                            
+                        }
+                        
+                    }
                     
-                    libraryElement("nissan silvia s13")
+                    // Page 3
+                    VStack(spacing: 19){
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("mercedes w25")
+                            
+                            libraryElement("maybach sw38")
+                            
+                            libraryElement("mercedes a45")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("lotus europa")
+                            
+                            libraryElement("ford gt 40")
+                            
+                            libraryElement("maserati mc12")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("devel sixteen")
+                            
+                            libraryElement("audi r18")
+                            
+                            libraryElement("bugatti chiron")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("lancia 037")
+                            
+                            libraryElement("renault 19 16s")
+                            
+                            libraryElement("alfa romeo stradale")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("toyota gt86")
+                            
+                            libraryElement("toyota supra")
+                            
+                            libraryElement("porsche 911")
+                            
+                        }
+                        
+                    }
                     
-                    libraryElement("toyota corolla")
+                    // Page 4
+                    VStack(spacing: 19){
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("charger rt")
+                            
+                            libraryElement("oldsmobile gr")
+                            
+                            libraryElement("chevrolet camaro")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("citroen ds23")
+                            
+                            libraryElement("dome zero")
+                            
+                            libraryElement("caterham 21")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("toyota lc FJ43")
+                            
+                            libraryElement("toyota lc76")
+                            
+                            libraryElement("toyota fjcruiser")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("toyota mr2")
+                            
+                            libraryElement("nissan silvia s13")
+                            
+                            libraryElement("nissan silvia s15")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("audi 100 avant")
+                            
+                            libraryElement("aston martin db11")
+                            
+                            libraryElement("hyundai i20n")
+                            
+                        }
+                        
+                    }.padding(.trailing, 200)
                     
-                }
+                }.offset(x: -(self.backgroundOffset * g.size.width))
+                    .animation(.default, value: self.backgroundOffset)
+                    .padding(.top, 70)
+                    .padding(.leading)
                 
-                HStack(spacing: 19){
+                // Scroll Dots
+                HStack(spacing: 5){
                     
-                    libraryElement("mclaren f1")
+                    // Page 1
+                    Circle()
+                        .foregroundColor(Color.white)
+                        .opacity((self.backgroundOffset == 0) ? 0.75 : 0.55)
+                        .frame(width: 14.5, height: 14.5)
                     
-                    libraryElement("jaguar xjs")
+                    // Page 2
+                    Circle()
+                        .foregroundColor(Color.white)
+                        .opacity((self.backgroundOffset == 1) ? 0.75 : 0.55)
+                        .frame(width: 14.5, height: 14.5)
                     
-                    libraryElement("lamborghini diablo")
+                    // Page 3
+                    Circle()
+                        .foregroundColor(Color.white)
+                        .opacity((self.backgroundOffset == 2) ? 0.75 : 0.55)
+                        .frame(width: 14.5, height: 14.5)
                     
-                }
+                    // Page 4
+                    Circle()
+                        .foregroundColor(Color.white)
+                        .opacity((self.backgroundOffset == 3) ? 0.75 : 0.55)
+                        .frame(width: 14.5, height: 14.5)
+                    
+                }.offset(x: UIScreen.screenWidth / 2.45, y: UIScreen.screenHeight / 1.18)
+                    .animation(.default, value: self.backgroundOffset)
                 
-                HStack(spacing: 19){
+            }.gesture(
+            DragGesture()
+                .onEnded({ value in
                     
-                    libraryElement("abarth 500")
+                    if value.translation.width > 10 {
+                        
+                        if self.backgroundOffset > 0 {
+                            self.backgroundOffset -= 1
+                        }
+                        
+                    }
+                    else if value.translation.width < -10 {
+                        
+                        if self.backgroundOffset < 3 {
+                            self.backgroundOffset += 1
+                        }
+                        
+                    }
                     
-                    libraryElement("fiat 500")
-                    
-                    libraryElement("vw beetle")
-                    
-                }
-                
-                HStack(spacing: 19){
-                    
-                    libraryElement("mazda mx5")
-                    
-                    libraryElement("mazda rx7")
-                    
-                    libraryElement("nissan fairylady")
-                    
-                }
-                
-                HStack(spacing: 19){
-                    
-                    libraryElement("nissan gtr r32")
-                    
-                    libraryElement("nissan gtr r34")
-                    
-                    libraryElement("nissan gtr r35")
-                    
-                }
-                
-            }
+                })
+            )
             
         }.ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -94,10 +324,12 @@ struct librarySingleView: View {
         
     }
     
+    
     // function for formatting car image
     func libraryCarImage(_ car: Image) -> some View {
         return car.resizable().frame(width: 150, height: 150, alignment: .center).offset(y: -15)
     }
+    
     
     // function for creating library element with car
     func libraryElement(_ car: String) -> some View {
