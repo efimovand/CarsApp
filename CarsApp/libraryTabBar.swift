@@ -40,6 +40,8 @@ struct TabItemView: View {
 // Bar View
 struct TabBottomView: View {
     
+    @EnvironmentObject var data: UserData
+    
     let tabbarItems: [TabItemData]
     @Binding var selectedIndex: Int
     
@@ -50,6 +52,9 @@ struct TabBottomView: View {
             ForEach(0..<2) { index in
                 let item = tabbarItems[index]
                 Button {
+                    if self.selectedIndex == index{ // return to menu
+                        data.library = false
+                    }
                     self.selectedIndex = index
                 } label: {
                     let isSelected = selectedIndex == index
@@ -111,6 +116,8 @@ enum TabType: Int, CaseIterable {
 
 // Buttons' navigation
 struct libraryTabBar: View {
+    
+    @EnvironmentObject var data: UserData
     
     @State var selectedIndex: Int = 0
     
