@@ -13,16 +13,16 @@ struct librarySingleView: View {
     
     @State var backgroundOffset: CGFloat = 0
     
-    @State var sheetOn: Bool = false
+    @State var selectedPage: Int = 0
     
     var body: some View {
         
         ZStack{
             
-            GeometryReader { g in
-                
-                // Pages
-                HStack(spacing: 38){
+            VStack(spacing: 10){
+             
+            // Pages
+            TabView(selection: $selectedPage){
                     
                     // Page 1
                     VStack(spacing: 19){
@@ -91,7 +91,7 @@ struct librarySingleView: View {
                             
                         }
                         
-                    }.padding(.leading, 2)
+                    }.tag(0)
                     
                     // Page 2
                     VStack(spacing: 19){
@@ -146,7 +146,7 @@ struct librarySingleView: View {
                             
                         }
                         
-                    }
+                    }.tag(1)
                     
                     // Page 3
                     VStack(spacing: 19){
@@ -201,7 +201,7 @@ struct librarySingleView: View {
                             
                         }
                         
-                    }
+                    }.tag(2)
                     
                     // Page 4
                     VStack(spacing: 19){
@@ -256,64 +256,43 @@ struct librarySingleView: View {
                             
                         }
                         
-                    }.padding(.trailing, 200)
-                    
-                }.offset(x: -(self.backgroundOffset * g.size.width))
-                    .animation(.default, value: self.backgroundOffset)
-                    .padding(.top, 60)
-                    .padding(.leading)
+                    }.tag(3)
                 
+            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+            
                 // Scroll Dots
                 HStack(spacing: 5){
-                    
+
                     // Page 1
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 0) ? 0.7 : 0.5)
+                        .opacity((selectedPage == 0) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
-                    
+
                     // Page 2
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 1) ? 0.7 : 0.5)
+                        .opacity((selectedPage == 1) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
-                    
+
                     // Page 3
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 2) ? 0.7 : 0.5)
+                        .opacity((selectedPage == 2) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
-                    
+
                     // Page 4
                     Circle()
                         .foregroundColor(Color.white)
-                        .opacity((self.backgroundOffset == 3) ? 0.7 : 0.5)
+                        .opacity((selectedPage == 3) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
-                    
-                }.animation(.default, value: self.backgroundOffset)
-                    .position(x: g.size.width / 2, y: g.size.height / 1.21)
+
+                }.padding(.top, -70)
                 
-            }.gesture(
-            DragGesture()
-                .onEnded({ value in
-                    
-                    if value.translation.width > 10 {
-                        
-                        if self.backgroundOffset > 0 {
-                            self.backgroundOffset -= 1
-                        }
-                        
-                    }
-                    else if value.translation.width < -10 {
-                        
-                        if self.backgroundOffset < 3 {
-                            self.backgroundOffset += 1
-                        }
-                        
-                    }
-                    
-                })
-            )
+                Spacer(minLength: 50)
+                
+            }
             
         }.ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
