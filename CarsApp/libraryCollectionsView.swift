@@ -11,7 +11,7 @@ struct libraryCollectionsView: View {
     
     @EnvironmentObject var data: UserData
     
-    @State var collections = ["rx7", "mx5", "jimny"]
+    @State var collections = ["rx7", "mx5", "jimny", "gtr"]
     
     @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.1 + 1
     
@@ -123,7 +123,53 @@ struct libraryCollectionsView: View {
                                     .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                                     .ignoresSafeArea()
                                     .opacity(data.unlockedCars.contains("2018") ? 0 : 1)
-                            }.disabled(true)
+                            }
+                            
+                        case 3: // gtr
+                            
+                            ZStack{
+                                Image("kpgc10_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("1970") ? 0 : 1)
+
+                                Image("kpgc110_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("1981") ? 0 : 1)
+
+                                Image("r32_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("1998") ? 0 : 1)
+
+                                Image("r33_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("2018") ? 0 : 1)
+                                
+                                Image("r34_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("2018") ? 0 : 1)
+                                
+                                Image("r35_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("2018") ? 0 : 1)
+                            }
 
                         default: Text("")
 

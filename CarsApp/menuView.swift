@@ -40,6 +40,10 @@ struct menuView: View {
                             .resizable()
                             .frame(width: 290, height: 290)
                             .offset(y: -80)
+                            .onTapGesture(perform: {
+                                data.unlockedCars = []
+                                UserDefaults.standard.set([], forKey: "unlockedCars")
+                            })
                         
                     }
                     
