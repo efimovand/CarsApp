@@ -19,4 +19,5 @@ class UserData: ObservableObject {
     @Published var loseAlertCollection: Bool = false // loseAlert activation for collections
     @Published var globalBlurRadius: CGFloat = 0
     @Published var extraLives = UserDefaults.standard.integer(forKey: "extraLives")
+    @Published var useLife: Bool = false // use life animation
 }

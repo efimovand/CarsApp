@@ -56,6 +56,7 @@ struct gameView: View {
                                 
                                 Button(action: {
                                     answeredSingle(number)
+                                    data.useLife = false
                                 }) {
                                 
                                 ZStack{
@@ -131,7 +132,6 @@ struct gameView: View {
                     
                 }.opacity(((data.score % 10 == 0) || (data.score % 10 == 5)) ? 1 : 0)
                     
-                    
             }.blur(radius: data.globalBlurRadius)
                 .onChange(of: loseAlertShown || data.loseAlertCollection, perform: { value in
                     switch value {
@@ -144,6 +144,11 @@ struct gameView: View {
             if loseAlertShown || data.loseAlertCollection {
                 loseAlertView(loseAlertShown: $loseAlertShown)
             }
+            
+            // Use Life Animation
+            useLifeView()
+                .opacity(data.useLife ? 1 : 0)
+                .offset(x: 48, y: UIScreen.screenHeight * 0.164 / 2 + 12)
             
         }.ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -179,6 +184,36 @@ struct gameView: View {
         cars.shuffle()
         correctAnswer = Int.random(in: (0..<4))
         collectionNumber = Int.random(in: (0..<4))
+    }
+    
+}
+
+
+// Use Life Animation
+struct useLifeView: View {
+    
+    @EnvironmentObject var data: UserData
+    
+    @State var useLifeOpacity: Double = 1
+    @State var useLifeOffset: CGFloat = 0
+    
+    var body: some View {
+        
+        ZStack{
+            
+            Text("-1")
+                .foregroundColor(Color.white)
+                .font(Font.custom("PorterSansBlock", size: 20))
+            
+        }.opacity(useLifeOpacity)
+        .offset(y: useLifeOffset)
+        .onChange(of: data.useLife, perform: { value in
+            switch value{
+            case true: withAnimation(.linear(duration: 1)) { useLifeOffset = -30; useLifeOpacity = 0 }
+            case false: useLifeOffset = 0; useLifeOpacity = 1
+            }
+        })
+        
     }
     
 }

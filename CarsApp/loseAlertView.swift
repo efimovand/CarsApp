@@ -109,6 +109,8 @@ struct loseAlertView: View {
                     addLifeAlert = true
                 }
                 else {
+                    data.useLife = true
+                    
                     loseAlertShown = false
                     data.loseAlertCollection = false
                     
