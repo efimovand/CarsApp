@@ -11,15 +11,20 @@ struct gameView: View {
     
     @EnvironmentObject var data: UserData
     
+    // Cars
     @State var cars = ["abarth 500", "alfa romeo 4c", "alfa romeo c39", "alfa romeo stradale", "aston martin db11", "audi 100 avant", "audi r18", "bmw m3 e36", "bmw m3 e46", "bmw m3 e92", "bmw m635 e24", "bmw x1", "bugatti chiron", "caterham 21", "charger rt", "chevrolet camaro", "citroen ds23", "devel sixteen", "dome zero", "fiat 500", "ford gt 40", "honda civic", "hyundai i20n", "jaguar xjs", "lamborghini diablo", "lancia 037", "lotus europa", "maserati mc12", "maybach sw38", "mazda mx5", "mazda rx7", "mclaren f1", "mercedes a45", "mercedes w25", "mitsubishi evo 7", "mitsubishi evo 8", "nissan fairylady", "nissan gtr r32", "nissan gtr r34", "nissan gtr r35", "nissan silvia s13", "nissan silvia s15", "oldsmobile gr", "porsche 911", "renault 19 16s", "renault clio", "renault megane", "subaru impreza", "suzuki hustler", "suzuki swift", "toyota coaster", "toyota corolla", "toyota fjcruiser", "toyota gt86", "toyota lc FJ43", "toyota lc76", "toyota mr2", "toyota supra", "vw beetle a4", "vw beetle classic"].shuffled()
     
+    // Collections
     @State var collection_1 = [collection_rx7().self]
     @State var collection_2 = [collection_mx5().self]
     @State var collection_3 = [collection_jimny().self]
     @State var collection_4 = [collection_gtr().self]
+    @State var collection_5 = [collection_m3().self]
+    
+    @State var collectionsAmount: Int = 5
     
     @State var correctAnswer = Int.random(in: 0..<4)
-    @State var collectionNumber = Int.random(in: 0..<4) // Collections' amount
+    @State var collectionNumber = Int.random(in: 0..<5) // Collections' amount
     
     @State var loseAlertShown: Bool = false
     
@@ -130,6 +135,10 @@ struct gameView: View {
                         collection_4[0]
                     }.opacity(collectionNumber == 3 ? 1 : 0)
                     
+                    ZStack{
+                        collection_5[0]
+                    }.opacity(collectionNumber == 4 ? 1 : 0)
+                    
                 }.opacity(((data.score % 10 == 0) || (data.score % 10 == 5)) ? 1 : 0)
                     
             }.blur(radius: data.globalBlurRadius)
@@ -183,7 +192,7 @@ struct gameView: View {
     func nextQuestion() {
         cars.shuffle()
         correctAnswer = Int.random(in: (0..<4))
-        collectionNumber = Int.random(in: (0..<4))
+        collectionNumber = Int.random(in: (0..<5)) // Collections' amount
     }
     
 }

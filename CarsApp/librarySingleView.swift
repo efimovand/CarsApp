@@ -20,9 +20,9 @@ struct librarySingleView: View {
         ZStack{
             
             VStack(spacing: 10){
-             
-            // Pages
-            TabView(selection: $selectedPage){
+                
+                // Pages
+                TabView(selection: $selectedPage){
                     
                     // Page 1
                     VStack(spacing: 19){
@@ -257,8 +257,63 @@ struct librarySingleView: View {
                         }
                         
                     }.tag(3)
-                
-            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    
+                    // Page 5
+                    VStack(spacing: 19){
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("toyota coaster")
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                        }
+                        
+                        HStack(spacing: 19){
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                            libraryElement("")
+                            
+                        }
+                        
+                    }.tag(4)
+                    
+                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
             
                 // Scroll Dots
@@ -286,6 +341,12 @@ struct librarySingleView: View {
                     Circle()
                         .foregroundColor(Color.white)
                         .opacity((selectedPage == 3) ? 0.7 : 0.5)
+                        .frame(width: 14.5, height: 14.5)
+                    
+                    // Page 5
+                    Circle()
+                        .foregroundColor(Color.white)
+                        .opacity((selectedPage == 4) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
 
                 }.padding(.top, -70)
