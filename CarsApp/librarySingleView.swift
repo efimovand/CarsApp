@@ -19,7 +19,7 @@ struct librarySingleView: View {
         
         ZStack{
             
-            VStack(spacing: 10){
+            VStack(spacing: 20){
                 
                 // Pages
                 TabView(selection: $selectedPage){
@@ -349,9 +349,9 @@ struct librarySingleView: View {
                         .opacity((selectedPage == 4) ? 0.7 : 0.5)
                         .frame(width: 14.5, height: 14.5)
 
-                }.padding(.top, -70)
+                }.offset(y: -5)
                 
-                Spacer(minLength: 50)
+                Spacer(minLength: 110)
                 
             }
             
