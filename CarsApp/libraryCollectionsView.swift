@@ -11,7 +11,7 @@ struct libraryCollectionsView: View {
     
     @EnvironmentObject var data: UserData
     
-    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3"]
+    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3", "gti"]
     
     @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.1 + 1
     
@@ -215,6 +215,67 @@ struct libraryCollectionsView: View {
                                     .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                                     .ignoresSafeArea()
                                     .opacity(data.unlockedCars.contains("g80") ? 0 : 1)
+                            }
+                            
+                        case 5: // gti
+                            
+                            ZStack{
+                                Image("mk.1_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.1") ? 0 : 1)
+
+                                Image("mk.2_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.2") ? 0 : 1)
+
+                                Image("mk.3_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.3") ? 0 : 1)
+
+                                Image("mk.4_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.4") ? 0 : 1)
+                                
+                                Image("mk.5_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.5") ? 0 : 1)
+                                
+                                Image("mk.6_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.6") ? 0 : 1)
+                                
+                                Image("mk.7_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.7") ? 0 : 1)
+                                
+                                Image("mk.8_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("mk.8") ? 0 : 1)
+                                
                             }
 
                         default: Text("")

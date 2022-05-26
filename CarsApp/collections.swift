@@ -384,7 +384,7 @@ struct collection_gtr: View {
         
         if tag == correctAnswer {
             
-            correctAnswer = Int.random(in: 0..<4)
+            correctAnswer = Int.random(in: 0..<6)
             
             data.score += 1
             
@@ -507,7 +507,150 @@ struct collection_m3: View {
         
         if tag == correctAnswer {
             
-            correctAnswer = Int.random(in: 0..<4)
+            correctAnswer = Int.random(in: 0..<6)
+            
+            data.score += 1
+            
+            if !(data.unlockedCars.contains(cars[tag] as String)) {
+                data.tempCars.append(cars[tag] as String)
+            }
+            
+        }
+        else {
+            data.loseAlertCollection = true
+        }
+        
+    }
+    
+}
+
+struct collection_gti: View {
+    
+    @EnvironmentObject var data: UserData
+    
+    @State var image: Image = Image("gti")
+    @State var cars = ["mk.1", "mk.2", "mk.3", "mk.4", "mk.5", "mk.6", "mk.7", "mk.8"]
+    @State var correctAnswer = Int.random(in: 0..<8)
+    
+    var body: some View {
+        
+        ZStack{
+            
+            // Image
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
+                .ignoresSafeArea()
+            
+            // Buttons
+            VStack(spacing: 45){
+                
+                HStack(spacing: 45){
+                    
+                    Button(action: {
+                        answeredCollection(0)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(1)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(2)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                }
+                
+                HStack(spacing: 180){
+                    
+                    Button(action: {
+                        answeredCollection(3)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(4)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                }
+                
+                HStack(spacing: 45){
+                    
+                    Button(action: {
+                        answeredCollection(5)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(6)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(7)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 90, height: 80)
+                            .opacity(0)
+                    }
+                    
+                }
+                
+            }.padding(.top)
+                .padding(.bottom, 35)
+                .disabled(data.globalBlurRadius != 0 ? true : false)
+            
+            // Question
+            Text("Guess the '\(cars[correctAnswer])'")
+                .foregroundColor(Color.white)
+                .font(Font.custom("PorterSansBlock", size: 19))
+                .background(RoundedRectangle(cornerRadius: 20).foregroundColor(Color("darkOrange")).padding(-8))
+                .offset(y: UIScreen.screenHeight * 0.4 + 5)
+            
+        }.ignoresSafeArea()
+        
+    }
+    
+    // checking is tapped answer right
+    func answeredCollection(_ tag: Int) {
+        
+        if tag == correctAnswer {
+            
+            correctAnswer = Int.random(in: 0..<8)
             
             data.score += 1
             
@@ -527,7 +670,7 @@ struct collection_m3: View {
 
 struct collections_Previews: PreviewProvider {
     static var previews: some View {
-        collection_m3()
+        collection_gti()
             .environmentObject(UserData())
     }
 }
