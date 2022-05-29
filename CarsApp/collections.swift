@@ -667,10 +667,120 @@ struct collection_gti: View {
     
 }
 
+struct collection_silvia: View {
+    
+    @EnvironmentObject var data: UserData
+    
+    @State var image: Image = Image("silvia")
+    @State var cars = ["s10", "s12", "s13", "s14", "s15"]
+    @State var correctAnswer = Int.random(in: 0..<5)
+    
+    var body: some View {
+        
+        ZStack{
+            
+            // Image
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
+                .ignoresSafeArea()
+            
+            // Buttons
+            VStack(spacing: 55){
+                    
+                    Button(action: {
+                        answeredCollection(0)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 120, height: 100)
+                            .opacity(0)
+                    }.padding(.leading, 10)
+                
+                HStack(spacing: 40){
+                    
+                    Button(action: {
+                        answeredCollection(1)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 120, height: 100)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(2)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 120, height: 100)
+                            .opacity(0)
+                    }
+                    
+                }.padding(.leading, 10)
+                
+                HStack(spacing: 45){
+                    
+                    Button(action: {
+                        answeredCollection(3)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 120, height: 100)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(4)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 120, height: 100)
+                            .opacity(0)
+                    }
+                    
+                }
+                
+            }.padding(.top)
+                .disabled(data.globalBlurRadius != 0 ? true : false)
+            
+            // Question
+            Text("Guess the '\(cars[correctAnswer])'")
+                .foregroundColor(Color.white)
+                .font(Font.custom("PorterSansBlock", size: 19))
+                .offset(y: UIScreen.screenHeight * 0.4 + 5)
+            
+        }.ignoresSafeArea()
+        
+    }
+    
+    // checking is tapped answer right
+    func answeredCollection(_ tag: Int) {
+        
+        if tag == correctAnswer {
+            
+            correctAnswer = Int.random(in: 0..<5)
+            
+            data.score += 1
+            
+            if !(data.unlockedCars.contains(cars[tag] as String)) {
+                data.tempCars.append(cars[tag] as String)
+            }
+            
+        }
+        else {
+            data.loseAlertCollection = true
+        }
+        
+    }
+    
+}
+
 
 struct collections_Previews: PreviewProvider {
     static var previews: some View {
-        collection_gti()
+        collection_silvia()
             .environmentObject(UserData())
     }
 }

@@ -11,7 +11,7 @@ struct libraryCollectionsView: View {
     
     @EnvironmentObject var data: UserData
     
-    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3", "gti"]
+    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3", "gti", "silvia"]
     
     @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.1 + 1
     
@@ -276,6 +276,45 @@ struct libraryCollectionsView: View {
                                     .ignoresSafeArea()
                                     .opacity(data.unlockedCars.contains("mk.8") ? 0 : 1)
                                 
+                            }
+                            
+                        case 6: // silvia
+                            
+                            ZStack{
+                                Image("s10_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("s10") ? 0 : 1)
+
+                                Image("s12_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("s12") ? 0 : 1)
+
+                                Image("s13_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("s13") ? 0 : 1)
+
+                                Image("s14_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("s14") ? 0 : 1)
+                                
+                                Image("s15_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("s15") ? 0 : 1)
                             }
 
                         default: Text("")
