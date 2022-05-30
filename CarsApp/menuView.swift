@@ -142,7 +142,7 @@ struct menuView: View {
                             .frame(width: 70, height: 70)
                             .overlay(Text(String(data.extraLives))
                                 .foregroundColor(Color.white)
-                                .font(Font.custom("PorterSansBlock", size: 18))
+                                .font(data.extraLives < 100 ? Font.custom("PorterSansBlock", size: 18) : Font.custom("PorterSansBlock", size: 14))
                                 .opacity(0.75)
                                 .offset(x: 1, y: -2))
                             .overlay(heart().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 1, blue: 1, opacity: 0.50), Color(red: 1, green: 1, blue: 1, opacity: 0.30)]), startPoint: .leading, endPoint: .trailing), lineWidth: 2).frame(width: 53, height: 48))
