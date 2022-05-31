@@ -11,7 +11,7 @@ struct libraryCollectionsView: View {
     
     @EnvironmentObject var data: UserData
     
-    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3", "gti", "silvia"]
+    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3", "gti", "silvia", "pike"]
     
     @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.1 + 1
     
@@ -315,6 +315,38 @@ struct libraryCollectionsView: View {
                                     .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                                     .ignoresSafeArea()
                                     .opacity(data.unlockedCars.contains("s15") ? 0 : 1)
+                            }
+                            
+                        case 7: // pike
+                            
+                            ZStack{
+                                Image("pao_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("pao") ? 0 : 1)
+
+                                Image("figaro_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("figaro") ? 0 : 1)
+
+                                Image("be-1_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("be-1") ? 0 : 1)
+
+                                Image("s-cargo_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("s-cargo") ? 0 : 1)
                             }
 
                         default: Text("")

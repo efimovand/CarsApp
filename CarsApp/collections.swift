@@ -777,10 +777,111 @@ struct collection_silvia: View {
     
 }
 
+struct collection_pike: View {
+    
+    @EnvironmentObject var data: UserData
+    
+    @State var image: Image = Image("pike")
+    @State var cars = ["pao", "figaro", "be-1", "s-cargo"]
+    @State var correctAnswer = Int.random(in: 0..<4)
+    
+    var body: some View {
+        
+        ZStack{
+            
+            // Image
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
+                .ignoresSafeArea()
+            
+            // Buttons
+            VStack(spacing: 25){
+                
+                HStack(spacing: 50){
+                    
+                    Button(action: {
+                        answeredCollection(0)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 140, height: 120)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(1)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 140, height: 120)
+                            .opacity(0)
+                    }
+                    
+                }
+                
+                HStack(spacing: 50){
+                    
+                    Button(action: {
+                        answeredCollection(2)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 140, height: 120)
+                            .opacity(0)
+                    }
+                    
+                    Button(action: {
+                        answeredCollection(3)
+                    }) {
+                        Rectangle()
+                            .foregroundColor((Color.white))
+                            .frame(width: 140, height: 130)
+                            .opacity(0)
+                    }
+                    
+                }
+                
+            }.padding(.top)
+                .disabled(data.globalBlurRadius != 0 ? true : false)
+            
+            // Question
+            Text("Guess the '\(cars[correctAnswer])'")
+                .foregroundColor(Color.white)
+                .font(Font.custom("PorterSansBlock", size: 19))
+                .offset(y: UIScreen.screenHeight * 0.4 + 5)
+            
+        }.ignoresSafeArea()
+        
+    }
+    
+    // checking is tapped answer right
+    func answeredCollection(_ tag: Int) {
+        
+        if tag == correctAnswer {
+            
+            correctAnswer = Int.random(in: 0..<4)
+            
+            data.score += 1
+            
+            if !(data.unlockedCars.contains(cars[tag] as String)) {
+                data.tempCars.append(cars[tag] as String)
+            }
+            
+        }
+        else {
+            data.loseAlertCollection = true
+        }
+        
+    }
+    
+}
+
 
 struct collections_Previews: PreviewProvider {
     static var previews: some View {
-        collection_silvia()
+        collection_pike()
             .environmentObject(UserData())
     }
 }
