@@ -11,7 +11,7 @@ struct libraryCollectionsView: View {
     
     @EnvironmentObject var data: UserData
     
-    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3", "gti", "silvia", "pike"]
+    @State var collections = ["rx7", "mx5", "jimny", "gtr", "m3", "gti", "silvia", "pike", "tz"]
     
     @State var tabBarHeight = UIScreen.screenHeight - UIScreen.screenHeight * 0.1 + 1
     
@@ -347,6 +347,38 @@ struct libraryCollectionsView: View {
                                     .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
                                     .ignoresSafeArea()
                                     .opacity(data.unlockedCars.contains("s-cargo") ? 0 : 1)
+                            }
+                            
+                        case 8: // tz
+                            
+                            ZStack{
+                                Image("tz1_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("tz") ? 0 : 1)
+
+                                Image("tz2_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("tz2") ? 0 : 1)
+
+                                Image("tz3 corsa_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("tz3 corsa") ? 0 : 1)
+
+                                Image("tz3 stradale_locked")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: UIScreen.screenWidth, height: tabBarHeight, alignment: .center)
+                                    .ignoresSafeArea()
+                                    .opacity(data.unlockedCars.contains("tz3 stradale") ? 0 : 1)
                             }
 
                         default: Text("")

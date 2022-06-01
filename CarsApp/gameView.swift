@@ -25,9 +25,10 @@ struct gameView: View {
     @State var collection_6 = [collection_gti().self]
     @State var collection_7 = [collection_silvia().self]
     @State var collection_8 = [collection_pike().self]
+    @State var collection_9 = [collection_tz().self]
     
     @State var correctAnswer = Int.random(in: 0..<4)
-    @State var collectionNumber = Int.random(in: 0..<8) // Collections' amount
+    @State var collectionNumber = Int.random(in: 0..<9) // Collections' amount
     
     @State var loseAlertShown: Bool = false
     
@@ -154,6 +155,10 @@ struct gameView: View {
                         collection_8[0]
                     }.opacity(collectionNumber == 7 ? 1 : 0)
                     
+                    ZStack{
+                        collection_9[0]
+                    }.opacity(collectionNumber == 8 ? 1 : 0)
+                    
                 }.opacity(((data.score % 10 == 0) || (data.score % 10 == 5)) ? 1 : 0)
                     
             }.blur(radius: data.globalBlurRadius)
@@ -207,7 +212,7 @@ struct gameView: View {
     func nextQuestion() {
         cars.shuffle()
         correctAnswer = Int.random(in: (0..<4))
-        collectionNumber = Int.random(in: (0..<8)) // Collections' amount
+        collectionNumber = Int.random(in: (0..<9)) // Collections' amount
     }
     
 }
