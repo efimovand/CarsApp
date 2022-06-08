@@ -275,7 +275,7 @@ struct librarySingleView: View {
                             
                             libraryElement("toyota crown")
                             
-                            libraryElement("")
+                            libraryElement("ferrari f50")
                             
                             libraryElement("")
                             
